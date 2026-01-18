@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" suppressHydrationWarning>
 
 <head>
   <meta charset="UTF-8" />
@@ -12,6 +12,21 @@
   <meta property="og:title" content="Synapse" />
   <meta property="og:description" content="Synapse Project" />
   <meta property="og:type" content="website" />
+
+  <!-- Prevent theme flash by applying theme before render -->
+  <script>
+    (function () {
+      const theme = localStorage.getItem('theme');
+      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      const appliedTheme = theme === 'system' || !theme ? systemTheme : theme;
+
+      if (appliedTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    })();
+  </script>
 </head>
 
 <body>
