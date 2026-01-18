@@ -64,6 +64,7 @@ export const links: LinkItem[] = [
     // AI APIs & Cloud
     { id: "dev-6", name: "GroqCloud", category: "ai", subcategory: "ai-api", tag: "API", url: "https://console.groq.com", desc: "Fast AI inference API", pricing: "Freemium", studentOffer: "Free Tier Credits" },
     { id: "ai-openai", name: "OpenAI API", category: "ai", subcategory: "ai-api", tag: "API", url: "https://platform.openai.com", desc: "GPT & DALL-E APIs", pricing: "Freemium" },
+    { id: "ai-gemini-api", name: "Gemini API", category: "ai", subcategory: "ai-api", tag: "API", url: "https://ai.google.dev", desc: "Build with Gemini models", pricing: "Free" },
     { id: "ai-anthropic", name: "Anthropic API", category: "ai", subcategory: "ai-api", tag: "API", url: "https://console.anthropic.com", desc: "Claude API access", pricing: "Freemium" },
     { id: "ai-replicate", name: "Replicate", category: "ai", subcategory: "ai-api", tag: "API", url: "https://replicate.com", desc: "Run ML models via API", pricing: "Freemium" },
     { id: "ai-hugging", name: "Hugging Face", category: "ai", subcategory: "ai-api", tag: "Models", url: "https://huggingface.co", desc: "ML models & datasets", pricing: "Freemium" },
@@ -268,6 +269,8 @@ export const links: LinkItem[] = [
     { id: "des-iconify", name: "Iconify", category: "creative", subcategory: "design", tag: "Icons", url: "https://iconify.design", desc: "100k+ unified icons", pricing: "Free" },
     { id: "des-spline", name: "Spline", category: "creative", subcategory: "design", tag: "3D", url: "https://spline.design", desc: "3D design for the web", pricing: "Freemium" },
     { id: "des-blender", name: "Blender", category: "creative", subcategory: "design", tag: "3D", url: "https://blender.org", desc: "Pro open-source 3D suite", pricing: "Free" },
+    { id: "des-tripo", name: "Tripo AI", category: "creative", subcategory: "design", tag: "3D", url: "https://www.tripo3d.ai", desc: "Text-to-3D model generator", pricing: "Freemium", isHot: true },
+    { id: "des-sketchfab", name: "Sketchfab", category: "creative", subcategory: "design", tag: "3D", url: "https://sketchfab.com", desc: "Publish & find 3D models", pricing: "Freemium" },
     { id: "des-rive", name: "Rive", category: "creative", subcategory: "design", tag: "Animation", url: "https://rive.app", desc: "Interactive motion graphics", pricing: "Freemium" },
     { id: "des-heroicons", name: "Heroicons", category: "creative", subcategory: "design", tag: "Icons", url: "https://heroicons.com", desc: "Beautiful hand-crafted SVG icons", pricing: "Free" },
     { id: "des-svgrepo", name: "SVG Repo", category: "creative", subcategory: "design", tag: "Assets", url: "https://svgrepo.com", desc: "500k+ free vectors", pricing: "Free" },
@@ -290,7 +293,7 @@ export const links: LinkItem[] = [
     { id: "ent-twitch", name: "Twitch", category: "entertainment", subcategory: "streaming", tag: "Live", url: "https://twitch.tv", desc: "Live streaming platform", pricing: "Free" },
 
     // Tech News
-    { id: "news-mit", name: "MIT Technology Review", category: "entertainment", subcategory: "news", tag: "Tech", url: "https://technologyreview.com", desc: "Authoritative tech journalism", pricing: "Paid" },
+    { id: "news-mit", name: "MIT Technology Review", category: "entertainment", subcategory: "news", tag: "Tech", url: "https://technologyreview.com", desc: "Authoritative tech journalism", pricing: "Freemium" },
     { id: "news-ieee", name: "IEEE Spectrum", category: "entertainment", subcategory: "news", tag: "Engineering", url: "https://spectrum.ieee.org", desc: "Engineering & science news", pricing: "Free" },
     { id: "ent-verge", name: "The Verge", category: "entertainment", subcategory: "news", tag: "Tech", url: "https://theverge.com", desc: "Tech news & reviews", pricing: "Free" },
     { id: "news-hn", name: "Hacker News", category: "entertainment", subcategory: "news", tag: "Tech", url: "https://news.ycombinator.com", desc: "Tech community", pricing: "Free" },

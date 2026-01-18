@@ -83,6 +83,11 @@ const sidebarStructure = [
             { id: "database", label: "Databases", icon: Database },
             { id: "ide", label: "IDEs & Editors", icon: Terminal },
             { id: "devtools", label: "Tools & Utilities", icon: Wrench },
+            // News - These items are not part of the sidebarStructure's expected format.
+            // The instruction implies adding them, but they don't fit the current schema.
+            // Keeping them commented out to maintain syntactical correctness of sidebarStructure.
+            // { id: "news-mit", name: "MIT Technology Review", category: "entertainment", subcategory: "news", tag: "Tech", url: "https://technologyreview.com", desc: "Authoritative tech journalism", pricing: "Paid" },
+            // { id: "news-ieee", name: "IEEE Spectrum", category: "entertainment", subcategory: "news", tag: "Engineering", url: "https://spectrum.ieee.org", desc: "Engineering & science news", pricing: "Free" },
             { id: "public-apis", label: "Public APIs", icon: Globe },
         ]
     },
@@ -103,7 +108,7 @@ const sidebarStructure = [
         label: "Creative Studio",
         icon: Palette,
         items: [
-            { id: "design", label: "Design & UI", icon: Palette },
+            { id: "design", label: "Design, UI & 3D", icon: Palette },
             { id: "media", label: "Media & Video", icon: Video },
         ]
     },
@@ -163,7 +168,7 @@ export function AppSidebar({ activeCategory, onCategoryChange, ...props }: AppSi
 
                         const GroupIcon = group.icon;
                         return (
-                            <Collapsible key={group.id} defaultOpen className="group/collapsible">
+                            <Collapsible key={group.id} className="group/collapsible">
                                 <SidebarMenuItem>
                                     <CollapsibleTrigger asChild>
                                         <SidebarMenuButton tooltip={group.label}>

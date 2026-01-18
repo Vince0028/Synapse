@@ -36,7 +36,7 @@ const Index = () => {
     research: "Research",
     writing: "Writing Support",
     creative: "Creative Studio",
-    design: "Design & UI",
+    design: "Design, UI & 3D",
     media: "Media & Video",
     entertainment: "Entertainment",
     streaming: "Streaming",
