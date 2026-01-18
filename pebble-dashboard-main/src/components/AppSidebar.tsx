@@ -83,11 +83,6 @@ const sidebarStructure = [
             { id: "database", label: "Databases", icon: Database },
             { id: "ide", label: "IDEs & Editors", icon: Terminal },
             { id: "devtools", label: "Tools & Utilities", icon: Wrench },
-            // News - These items are not part of the sidebarStructure's expected format.
-            // The instruction implies adding them, but they don't fit the current schema.
-            // Keeping them commented out to maintain syntactical correctness of sidebarStructure.
-            // { id: "news-mit", name: "MIT Technology Review", category: "entertainment", subcategory: "news", tag: "Tech", url: "https://technologyreview.com", desc: "Authoritative tech journalism", pricing: "Paid" },
-            // { id: "news-ieee", name: "IEEE Spectrum", category: "entertainment", subcategory: "news", tag: "Engineering", url: "https://spectrum.ieee.org", desc: "Engineering & science news", pricing: "Free" },
             { id: "public-apis", label: "Public APIs", icon: Globe },
         ]
     },
