@@ -58,9 +58,8 @@ export const links: LinkItem[] = [
     { id: "ai-30", name: "GitHub Copilot", category: "ai", subcategory: "coding-ai", tag: "Coding", url: "https://copilot.github.com", desc: "GitHub's AI code assistant", pricing: "Free Trial", studentOffer: "Free with GitHub Student Pack", isHot: true },
     { id: "ai-31", name: "Blackbox AI", category: "ai", subcategory: "coding-ai", tag: "Coding", url: "https://blackbox.ai", desc: "AI-powered coding helper", pricing: "Freemium" },
     { id: "ai-cursor", name: "Cursor", category: "ai", subcategory: "coding-ai", tag: "IDE", url: "https://cursor.sh", desc: "AI-first code editor", pricing: "Freemium", isHot: true },
-    { id: "ai-codeium", name: "Codeium", category: "ai", subcategory: "coding-ai", tag: "Coding", url: "https://codeium.com", desc: "Free AI code completion", pricing: "Free" },
     { id: "ai-tabnine", name: "Tabnine", category: "ai", subcategory: "coding-ai", tag: "Coding", url: "https://tabnine.com", desc: "AI code assistant", pricing: "Freemium" },
-    { id: "ai-windsurf", name: "Windsurf", category: "ai", subcategory: "coding-ai", tag: "IDE", url: "https://codeium.com/windsurf", desc: "AI-powered agentic IDE", pricing: "Freemium", isHot: true },
+    { id: "ai-windsurf", name: "Windsurf", category: "ai", subcategory: "coding-ai", tag: "IDE", url: "https://codeium.com/windsurf", desc: "Agentic IDE by Codeium", pricing: "Freemium", isHot: true },
 
     // AI APIs & Cloud
     { id: "dev-6", name: "GroqCloud", category: "ai", subcategory: "ai-api", tag: "API", url: "https://console.groq.com", desc: "Fast AI inference API", pricing: "Freemium", studentOffer: "Free Tier Credits" },
