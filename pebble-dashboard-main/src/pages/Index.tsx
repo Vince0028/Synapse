@@ -90,9 +90,10 @@ const Index = () => {
     });
 
     // Remove duplicates by name (keep first occurrence) - for Dashboard view
+    let finalLinks = filtered;
     if (activeCategory === "all") {
       const seen = new Set<string>();
-      return filtered.filter((link) => {
+      finalLinks = filtered.filter((link) => {
         if (seen.has(link.name)) {
           return false;
         }
@@ -101,7 +102,12 @@ const Index = () => {
       });
     }
 
-    return filtered;
+    // Sort by isHot (Fire tag) - Hot items first
+    return finalLinks.sort((a, b) => {
+      if (a.isHot && !b.isHot) return -1;
+      if (!a.isHot && b.isHot) return 1;
+      return 0;
+    });
   }, [activeCategory, searchQuery, pricingFilter, studentFilter, tagFilter]);
 
   // Reset tag filter when category changes
