@@ -51,7 +51,7 @@ const Index = () => {
   }, [activeCategory]);
 
   const filteredLinks = useMemo(() => {
-    return links.filter((link) => {
+    const filtered = links.filter((link) => {
       let matchesCategory = false;
 
       if (activeCategory === "all") {
@@ -80,6 +80,20 @@ const Index = () => {
 
       return matchesCategory && matchesSearch && matchesPricing && matchesStudent && matchesTag;
     });
+
+    // Remove duplicates by name (keep first occurrence) - for Dashboard view
+    if (activeCategory === "all") {
+      const seen = new Set<string>();
+      return filtered.filter((link) => {
+        if (seen.has(link.name)) {
+          return false;
+        }
+        seen.add(link.name);
+        return true;
+      });
+    }
+
+    return filtered;
   }, [activeCategory, searchQuery, pricingFilter, studentFilter, tagFilter]);
 
   // Reset tag filter when category changes
