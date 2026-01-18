@@ -17,6 +17,7 @@ const Index = () => {
 
   const categoryLabels: Record<string, string> = {
     all: "All Resources",
+    prompts: "Prompt Vault",
     ai: "AI Powerhouse",
     chatbot: "Chat Bots",
     humanizer: "Humanizers",
@@ -28,6 +29,7 @@ const Index = () => {
     database: "Databases",
     ide: "IDEs & Editors",
     devtools: "Tools & Utilities",
+    "public-apis": "Public APIs",
     student: "Student Center",
     study: "Study Tools",
     research: "Research",
@@ -42,6 +44,7 @@ const Index = () => {
 
   // Get available tags for current category
   const availableTags = useMemo(() => {
+    if (activeCategory === "all" || activeCategory === "prompts") return [];
     const categoryLinks = links.filter((link) => {
       if (activeCategory === "all") return true;
       return link.subcategory === activeCategory || link.category === activeCategory;
@@ -51,6 +54,9 @@ const Index = () => {
   }, [activeCategory]);
 
   const filteredLinks = useMemo(() => {
+    // If on prompts tab, return empty list to hide grid items naturally (or handle in render)
+    if (activeCategory === "prompts") return [];
+
     const filtered = links.filter((link) => {
       let matchesCategory = false;
 
@@ -103,85 +109,83 @@ const Index = () => {
   };
 
   return (
-    <SidebarProvider>
-      <AppSidebar
-        activeCategory={activeCategory}
-        onCategoryChange={handleCategoryChange}
-      />
-
+    <SidebarProvider defaultOpen={true}>
+      <AppSidebar activeCategory={activeCategory} onCategoryChange={handleCategoryChange} />
       <SidebarInset>
-        <div className="min-h-screen bg-background">
-          {/* Header Bar with Trigger and Theme Toggle */}
-          <header className="sticky top-0 z-10 flex h-14 items-center gap-2 border-b bg-background px-4 shadow-sm">
-            <SidebarTrigger />
-            <div className="ml-auto">
+        <div className="min-h-screen bg-background transition-colors duration-300">
+          <header className="sticky top-0 z-30 flex items-center justify-between px-6 py-4 bg-background/80 backdrop-blur-md border-b">
+            <div className="flex items-center gap-3">
+              <SidebarTrigger />
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+                  <span className="text-primary-foreground font-bold text-lg">S</span>
+                </div>
+                <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600">
+                  Synapse
+                </h1>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-4">
               <ThemeToggle />
             </div>
           </header>
 
-          {/* Main Content */}
-          <main className="p-6 md:p-8 space-y-8 max-w-[1600px] mx-auto">
-            {/* Page Title */}
-            <div className="space-y-2">
-              <h1 className="text-4xl font-bold text-foreground tracking-tight">
-                Synapse
-              </h1>
-              <p className="text-muted-foreground text-lg">
-                Your curated collection of essential resources
-              </p>
-            </div>
-
+          <main className="container mx-auto px-6 py-8 space-y-8 pb-32">
             {/* Search and Filters */}
-            <div className="space-y-4">
-              <SearchBar value={searchQuery} onChange={setSearchQuery} />
+            <div className="space-y-4 max-w-2xl mx-auto">
+              {activeCategory !== "prompts" && (
+                <>
+                  <SearchBar value={searchQuery} onChange={setSearchQuery} />
 
-              {/* Pricing Filters */}
-              <div className="flex flex-wrap gap-2">
-                <button
-                  onClick={() => setPricingFilter(pricingFilter === "Free" ? null : "Free")}
-                  className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors border ${pricingFilter === "Free"
-                    ? "bg-green-100 text-green-700 border-green-200 dark:bg-green-900/30 dark:text-green-300 dark:border-green-800"
-                    : "bg-background hover:bg-muted text-muted-foreground border-input"
-                    }`}
-                >
-                  Free Only
-                </button>
-                <button
-                  onClick={() => setPricingFilter(pricingFilter === "Paid" ? null : "Paid")}
-                  className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors border ${pricingFilter === "Paid"
-                    ? "bg-orange-100 text-orange-700 border-orange-200 dark:bg-orange-900/30 dark:text-orange-300 dark:border-orange-800"
-                    : "bg-background hover:bg-muted text-muted-foreground border-input"
-                    }`}
-                >
-                  Paid / Freemium
-                </button>
-                <button
-                  onClick={() => setStudentFilter(!studentFilter)}
-                  className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors border ${studentFilter
-                    ? "bg-indigo-100 text-indigo-700 border-indigo-200 dark:bg-indigo-900/30 dark:text-indigo-300 dark:border-indigo-800"
-                    : "bg-background hover:bg-muted text-muted-foreground border-input"
-                    }`}
-                >
-                  Student Offers
-                </button>
-              </div>
-
-              {/* Tag Filters - Dynamic based on category */}
-              {availableTags.length > 1 && (
-                <div className="flex flex-wrap gap-2">
-                  {availableTags.map((tag: string) => (
+                  <div className="flex flex-wrap gap-2 justify-center">
                     <button
-                      key={tag}
-                      onClick={() => setTagFilter(tagFilter === tag ? null : tag)}
-                      className={`px-3 py-1 rounded-full text-xs font-medium transition-colors border ${tagFilter === tag
-                        ? "bg-primary text-primary-foreground border-primary"
-                        : "bg-secondary/50 hover:bg-secondary text-secondary-foreground border-transparent"
+                      onClick={() => setPricingFilter(pricingFilter === "Free" ? null : "Free")}
+                      className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors border ${pricingFilter === "Free"
+                        ? "bg-green-100 text-green-700 border-green-200 dark:bg-green-900/30 dark:text-green-300 dark:border-green-800"
+                        : "bg-secondary hover:bg-secondary/80 text-secondary-foreground border-transparent"
                         }`}
                     >
-                      {tag}
+                      Free Only
                     </button>
-                  ))}
-                </div>
+                    <button
+                      onClick={() => setPricingFilter(pricingFilter === "Paid" ? null : "Paid")}
+                      className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors border ${pricingFilter === "Paid"
+                        ? "bg-blue-100 text-blue-700 border-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:border-blue-800"
+                        : "bg-secondary hover:bg-secondary/80 text-secondary-foreground border-transparent"
+                        }`}
+                    >
+                      Paid / Freemium
+                    </button>
+                    <button
+                      onClick={() => setStudentFilter(!studentFilter)}
+                      className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors border ${studentFilter
+                        ? "bg-indigo-100 text-indigo-700 border-indigo-200 dark:bg-indigo-900/30 dark:text-indigo-300 dark:border-indigo-800"
+                        : "bg-secondary hover:bg-secondary/80 text-secondary-foreground border-transparent"
+                        }`}
+                    >
+                      Student Offers
+                    </button>
+                  </div>
+
+                  {/* Dynamic Tag Filters */}
+                  {availableTags.length > 0 && (
+                    <div className="flex flex-wrap gap-2 justify-center">
+                      {availableTags.map((tag: string) => (
+                        <button
+                          key={tag}
+                          onClick={() => setTagFilter(tagFilter === tag ? null : tag)}
+                          className={`px-3 py-1 rounded-full text-xs font-medium transition-colors border ${tagFilter === tag
+                            ? "bg-primary text-primary-foreground border-primary"
+                            : "bg-secondary/50 hover:bg-secondary text-secondary-foreground border-transparent"
+                            }`}
+                        >
+                          {tag}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </>
               )}
             </div>
 
@@ -189,31 +193,37 @@ const Index = () => {
             <CategoryHeader
               activeCategory={activeCategory}
               title={categoryLabels[activeCategory] || "Resources"}
-              resultCount={filteredLinks.length}
+              resultCount={activeCategory === "prompts" ? undefined : filteredLinks.length}
             />
 
-            {/* Bento Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-              {filteredLinks.map((link, index) => (
-                <LinkCard key={link.id} link={link} index={index} />
-              ))}
+            {/* Bento Grid (Hide if on Prompts tab) */}
+            {activeCategory !== "prompts" && (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                {filteredLinks.map((link, index) => (
+                  <LinkCard key={link.id} link={link} index={index} />
+                ))}
 
-              {filteredLinks.length === 0 && (
-                <div className="col-span-full text-center py-16">
-                  <p className="text-muted-foreground text-lg">
-                    No links found matching your search.
-                  </p>
-                </div>
-              )}
-            </div>
+                {filteredLinks.length === 0 && (
+                  <div className="col-span-full text-center py-16">
+                    <p className="text-muted-foreground text-lg">
+                      No links found matching your search.
+                    </p>
+                  </div>
+                )}
+              </div>
+            )}
 
-            {/* Prompt Vault Section */}
-            <section className="max-w-full pt-8 border-t">
-              <h2 className="text-2xl font-bold text-foreground mb-6">
-                Prompt Vault
-              </h2>
-              <PromptVault />
-            </section>
+            {/* Prompt Vault Section - Show on Dashboard ('all') OR Prompt Tab ('prompts') */}
+            {(activeCategory === "all" || activeCategory === "prompts") && (
+              <section className={activeCategory === "all" ? "max-w-full pt-8 border-t" : "max-w-full"}>
+                {activeCategory === "all" && (
+                  <h2 className="text-2xl font-bold text-foreground mb-6">
+                    Prompt Vault
+                  </h2>
+                )}
+                <PromptVault />
+              </section>
+            )}
           </main>
         </div>
       </SidebarInset>

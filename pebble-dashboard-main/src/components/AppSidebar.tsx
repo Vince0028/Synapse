@@ -21,7 +21,8 @@ import {
     Video,
     Newspaper,
     Film,
-    Globe
+    Globe,
+    FileText
 } from "lucide-react"
 import {
     Sidebar,
@@ -51,6 +52,12 @@ const sidebarStructure = [
         id: "all",
         label: "Dashboard",
         icon: LayoutGrid
+    },
+    {
+        type: "single",
+        id: "prompts",
+        label: "Prompt Vault",
+        icon: FileText
     },
     {
         type: "group",
