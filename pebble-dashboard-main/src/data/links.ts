@@ -287,6 +287,8 @@ export const links: LinkItem[] = [
     { id: "des-svgrepo", name: "SVG Repo", category: "creative", subcategory: "design", tag: "Assets", url: "https://svgrepo.com", desc: "500k+ free vectors", pricing: "Free" },
     { id: "des-googlefonts", name: "Google Fonts", category: "creative", subcategory: "design", tag: "Fonts", url: "https://fonts.google.com", desc: "Free font library", pricing: "Free" },
     { id: "des-fontshare", name: "Fontshare", category: "creative", subcategory: "design", tag: "Fonts", url: "https://www.fontshare.com", desc: "Quality open source fonts", pricing: "Free" },
+    { id: "des-reactbits", name: "React Bits", category: "creative", subcategory: "design", tag: "Animation", url: "https://reactbits.dev", desc: "Animated React components", pricing: "Free", isHot: true },
+    { id: "des-vantajs", name: "Vanta.js", category: "creative", subcategory: "design", tag: "Animation", url: "https://www.vantajs.com", desc: "Animated 3D backgrounds", pricing: "Free", isHot: true },
 
     // Media & Video
     { id: "med-24", name: "Opus Pro", category: "creative", subcategory: "media", tag: "AI Video", url: "https://opus.pro", desc: "Video repurposing", pricing: "Free Trial" },
@@ -463,6 +465,71 @@ Use for: Storytelling, interview prep, case studies.
 • After: Desired future state
 • Bridge: How to get there
 Use for: Persuasive writing, problem-solving strategy.`,
+    },
+    {
+        id: "feynman-technique",
+        title: "The Feynman Technique",
+        content: `Act as an expert in your field with a talent for teaching. I want you to explain a complex concept to me using the Feynman Technique.
+        
+1. I will provide a concept or topic.
+2. You should explain it in simple language, as if I were a 12-year-old.
+3. Use analogies and metaphors to make it relatable.
+4. If there are gaps in my understanding based on your explanation, I will ask clarifying questions.
+5. Focus on the "why" and "how" rather than just jargon.`,
+    },
+    {
+        id: "socratic-tutor",
+        title: "Socratic Tutor",
+        content: `Act as a Socratic Tutor. I want to learn about a specific topic, but DO NOT give me the answers directly.
+
+Instead, ask me probing questions to test my knowledge and guide my understanding.
+• Start by asking what topic I want to learn.
+• Ask one question at a time.
+• Wait for my response before proceeding.
+• If I am wrong, gently guide me back with a simpler question or a hint.
+• If I am right, acknowledge it and move to a deeper aspect of the topic.
+• The goal is for me to construct the knowledge myself.`,
+    },
+    {
+        id: "code-reviewer",
+        title: "Senior Code Reviewer",
+        content: `Act as a Senior Software Engineer and Code Reviewer. I will provide you with a snippet of code.
+
+Your goal is to improve the quality, security, and performance of my code.
+Please provide:
+1. A summary of what the code does.
+2. A list of potential bugs or edge cases.
+3. Security vulnerabilities (if any).
+4. Performance optimizations (Big O notation if applicable).
+5. Refactored code that follows best practices (DRY, clean code).
+
+Be constructive and explain *why* you are suggesting each change.`,
+    },
+    {
+        id: "academic-summarizer",
+        title: "Academic Summarizer",
+        content: `Act as a Research Assistant. I will paste a long text, article, or research paper abstract.
+
+Please provide:
+1. A One-Sentence Summary (The "Elevator Pitch").
+2. Key Arguments/Points (Bulleted list).
+3. Important Terminology (Definitions of jargon used).
+4. Conclusion/Implications.
+
+Keep the tone objective and academic. Focus on extracting the core meaning without losing nuance.`,
+    },
+    {
+        id: "writing-editor",
+        title: "Professional Writing Editor",
+        content: `Act as a Professional Editor. I will provide a draft of a text (essay, email, or post).
+
+Please critique and improve my writing focusing on:
+1. Clarity and Flow (Remove awkward phrasing).
+2. Grammar and Punctuation.
+3. Tone Consistency (Specify if I want formal, persuasive, or casual).
+4. Vocabulary Enhancements (Suggest stronger verbs/adjectives).
+
+Provide the corrected version followed by a list of key changes you made and why.`,
     },
 ];
 
