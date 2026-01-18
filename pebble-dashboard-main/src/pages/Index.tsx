@@ -13,6 +13,7 @@ const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [pricingFilter, setPricingFilter] = useState<string | null>(null);
   const [studentFilter, setStudentFilter] = useState(false);
+  const [tagFilter, setTagFilter] = useState<string | null>(null);
 
   const categoryLabels: Record<string, string> = {
     all: "All Resources",
@@ -38,6 +39,16 @@ const Index = () => {
     streaming: "Streaming",
     news: "Tech News"
   };
+
+  // Get available tags for current category
+  const availableTags = useMemo(() => {
+    const categoryLinks = links.filter((link) => {
+      if (activeCategory === "all") return true;
+      return link.subcategory === activeCategory || link.category === activeCategory;
+    });
+    const tags = [...new Set(categoryLinks.map((link) => link.tag))];
+    return tags.sort();
+  }, [activeCategory]);
 
   const filteredLinks = useMemo(() => {
     return links.filter((link) => {
@@ -65,15 +76,23 @@ const Index = () => {
 
       const matchesStudent = studentFilter ? !!link.studentOffer : true;
 
-      return matchesCategory && matchesSearch && matchesPricing && matchesStudent;
+      const matchesTag = tagFilter ? link.tag === tagFilter : true;
+
+      return matchesCategory && matchesSearch && matchesPricing && matchesStudent && matchesTag;
     });
-  }, [activeCategory, searchQuery, pricingFilter, studentFilter]);
+  }, [activeCategory, searchQuery, pricingFilter, studentFilter, tagFilter]);
+
+  // Reset tag filter when category changes
+  const handleCategoryChange = (category: string) => {
+    setActiveCategory(category);
+    setTagFilter(null);
+  };
 
   return (
     <SidebarProvider>
       <AppSidebar
         activeCategory={activeCategory}
-        onCategoryChange={setActiveCategory}
+        onCategoryChange={handleCategoryChange}
       />
 
       <SidebarInset>
@@ -102,12 +121,13 @@ const Index = () => {
             <div className="space-y-4">
               <SearchBar value={searchQuery} onChange={setSearchQuery} />
 
+              {/* Pricing Filters */}
               <div className="flex flex-wrap gap-2">
                 <button
                   onClick={() => setPricingFilter(pricingFilter === "Free" ? null : "Free")}
                   className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors border ${pricingFilter === "Free"
-                      ? "bg-green-100 text-green-700 border-green-200 dark:bg-green-900/30 dark:text-green-300 dark:border-green-800"
-                      : "bg-background hover:bg-muted text-muted-foreground border-input"
+                    ? "bg-green-100 text-green-700 border-green-200 dark:bg-green-900/30 dark:text-green-300 dark:border-green-800"
+                    : "bg-background hover:bg-muted text-muted-foreground border-input"
                     }`}
                 >
                   Free Only
@@ -115,8 +135,8 @@ const Index = () => {
                 <button
                   onClick={() => setPricingFilter(pricingFilter === "Paid" ? null : "Paid")}
                   className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors border ${pricingFilter === "Paid"
-                      ? "bg-orange-100 text-orange-700 border-orange-200 dark:bg-orange-900/30 dark:text-orange-300 dark:border-orange-800"
-                      : "bg-background hover:bg-muted text-muted-foreground border-input"
+                    ? "bg-orange-100 text-orange-700 border-orange-200 dark:bg-orange-900/30 dark:text-orange-300 dark:border-orange-800"
+                    : "bg-background hover:bg-muted text-muted-foreground border-input"
                     }`}
                 >
                   Paid / Freemium
@@ -124,13 +144,31 @@ const Index = () => {
                 <button
                   onClick={() => setStudentFilter(!studentFilter)}
                   className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors border ${studentFilter
-                      ? "bg-indigo-100 text-indigo-700 border-indigo-200 dark:bg-indigo-900/30 dark:text-indigo-300 dark:border-indigo-800"
-                      : "bg-background hover:bg-muted text-muted-foreground border-input"
+                    ? "bg-indigo-100 text-indigo-700 border-indigo-200 dark:bg-indigo-900/30 dark:text-indigo-300 dark:border-indigo-800"
+                    : "bg-background hover:bg-muted text-muted-foreground border-input"
                     }`}
                 >
                   Student Offers
                 </button>
               </div>
+
+              {/* Tag Filters - Dynamic based on category */}
+              {availableTags.length > 1 && (
+                <div className="flex flex-wrap gap-2">
+                  {availableTags.map((tag: string) => (
+                    <button
+                      key={tag}
+                      onClick={() => setTagFilter(tagFilter === tag ? null : tag)}
+                      className={`px-3 py-1 rounded-full text-xs font-medium transition-colors border ${tagFilter === tag
+                        ? "bg-primary text-primary-foreground border-primary"
+                        : "bg-secondary/50 hover:bg-secondary text-secondary-foreground border-transparent"
+                        }`}
+                    >
+                      {tag}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* Category Header */}
