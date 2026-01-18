@@ -67,6 +67,7 @@ const sidebarStructure = [
         items: [
             { id: "chatbot", label: "Chat Bots", icon: Bot },
             { id: "humanizer", label: "Humanizers", icon: UserCheck },
+            { id: "detector", label: "AI Detectors", icon: UserCheck },
             { id: "coding-ai", label: "Coding Assistants", icon: Terminal },
             { id: "ai-api", label: "AI APIs & Cloud", icon: Cpu },
             { id: "generator", label: "Generators", icon: Sparkles },

@@ -21,6 +21,7 @@ const Index = () => {
     ai: "AI Powerhouse",
     chatbot: "Chat Bots",
     humanizer: "Humanizers",
+    detector: "AI Detectors",
     "coding-ai": "Coding Assistants",
     "ai-api": "AI APIs & Cloud",
     generator: "Generators",
