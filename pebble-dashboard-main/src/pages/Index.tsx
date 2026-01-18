@@ -31,6 +31,7 @@ const Index = () => {
     ide: "IDEs & Editors",
     devtools: "Tools & Utilities",
     "public-apis": "Public APIs",
+    automation: "Automation",
     student: "Student Center",
     study: "Study Tools",
     research: "Research",

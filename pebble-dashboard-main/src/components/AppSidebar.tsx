@@ -22,7 +22,8 @@ import {
     Newspaper,
     Film,
     Globe,
-    FileText
+    FileText,
+    Workflow
 } from "lucide-react"
 import {
     Sidebar,
@@ -84,6 +85,7 @@ const sidebarStructure = [
             { id: "ide", label: "IDEs & Editors", icon: Terminal },
             { id: "devtools", label: "Tools & Utilities", icon: Wrench },
             { id: "public-apis", label: "Public APIs", icon: Globe },
+            { id: "automation", label: "Automation", icon: Workflow },
         ]
     },
     {

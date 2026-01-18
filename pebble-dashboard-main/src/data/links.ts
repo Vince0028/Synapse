@@ -143,6 +143,17 @@ export const links: LinkItem[] = [
     { id: "dev-logrocket", name: "LogRocket", category: "dev", subcategory: "devtools", tag: "Monitoring", url: "https://logrocket.com", desc: "Session replay & monitoring", pricing: "Freemium" },
     { id: "dev-playwright", name: "Playwright", category: "dev", subcategory: "devtools", tag: "Testing", url: "https://playwright.dev", desc: "Reliable E2E testing", pricing: "Free" },
 
+    // Automation & Workflow
+    { id: "auto-n8n", name: "n8n", category: "dev", subcategory: "automation", tag: "Workflow", url: "https://n8n.io", desc: "Fair-code workflow automation", pricing: "Freemium", isHot: true },
+    { id: "auto-make", name: "Make", category: "dev", subcategory: "automation", tag: "Visual", url: "https://make.com", desc: "Visual automation platform", pricing: "Freemium" },
+    { id: "auto-zapier", name: "Zapier", category: "dev", subcategory: "automation", tag: "Visual", url: "https://zapier.com", desc: "Automate apps easily", pricing: "Freemium" },
+    { id: "auto-activepieces", name: "Activepieces", category: "dev", subcategory: "automation", tag: "Open Source", url: "https://activepieces.com", desc: "Open source no-code business automation", pricing: "Freemium", isHot: true },
+    { id: "auto-pipedream", name: "Pipedream", category: "dev", subcategory: "automation", tag: "Code", url: "https://pipedream.com", desc: "Connect APIs remarkably fast", pricing: "Freemium" },
+    { id: "auto-windmill", name: "Windmill", category: "dev", subcategory: "automation", tag: "Code", url: "https://windmill.dev", desc: "Turn scripts into internal UIs", pricing: "Freemium" },
+    { id: "auto-nodered", name: "Node-RED", category: "dev", subcategory: "automation", tag: "IoT", url: "https://nodered.org", desc: "Low-code programming for event-driven apps", pricing: "Free" },
+    { id: "auto-gumloop", name: "Gumloop", category: "dev", subcategory: "automation", tag: "AI Agent", url: "https://gumloop.com", desc: "Automate ops with AI agents", pricing: "Freemium", isHot: true },
+    { id: "auto-lindy", name: "Lindy", category: "dev", subcategory: "automation", tag: "AI Agent", url: "https://lindy.ai", desc: "AI employee for every task", pricing: "Freemium" },
+
     // Additional Hosting & Infrastructure
     { id: "dev-cfpages", name: "Cloudflare Pages", category: "dev", subcategory: "hosting", tag: "Hosting", url: "https://pages.cloudflare.com", desc: "Ultra-fast global hosting", pricing: "Freemium" },
     { id: "dev-appwrite", name: "Appwrite", category: "dev", subcategory: "database", tag: "Backend", url: "https://appwrite.io", desc: "Open-source Firebase alt", pricing: "Freemium" },
