@@ -1,6 +1,6 @@
 # Synapse
 
-This is the Synapse project.
+This is the Synapse project. The point where two nerves meet (perfect for connecting a user to a tool)
 
 ## Project info
 

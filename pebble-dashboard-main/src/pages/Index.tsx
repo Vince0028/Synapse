@@ -14,12 +14,12 @@ const Index = () => {
   const filteredLinks = useMemo(() => {
     return links.filter((link) => {
       const matchesCategory = activeCategory === "all" || link.category === activeCategory;
-      const matchesSearch = 
+      const matchesSearch =
         searchQuery === "" ||
         link.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         link.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
         link.tag.toLowerCase().includes(searchQuery.toLowerCase());
-      
+
       return matchesCategory && matchesSearch;
     });
   }, [activeCategory, searchQuery]);
@@ -27,9 +27,9 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Dock Navigation */}
-      <Dock 
-        activeCategory={activeCategory} 
-        onCategoryChange={setActiveCategory} 
+      <Dock
+        activeCategory={activeCategory}
+        onCategoryChange={setActiveCategory}
       />
 
       {/* Theme Toggle */}
@@ -42,7 +42,7 @@ const Index = () => {
         {/* Header */}
         <header className="mb-12">
           <h1 className="text-4xl font-bold text-foreground mb-2 tracking-tight">
-            Link Hub
+            Synapse
           </h1>
           <p className="text-muted-foreground text-lg">
             Your curated collection of essential resources
@@ -55,9 +55,9 @@ const Index = () => {
         </div>
 
         {/* Category Header */}
-        <CategoryHeader 
-          activeCategory={activeCategory} 
-          resultCount={filteredLinks.length} 
+        <CategoryHeader
+          activeCategory={activeCategory}
+          resultCount={filteredLinks.length}
         />
 
         {/* Bento Grid */}
@@ -65,7 +65,7 @@ const Index = () => {
           {filteredLinks.map((link, index) => (
             <LinkCard key={link.id} link={link} index={index} />
           ))}
-          
+
           {filteredLinks.length === 0 && (
             <div className="col-span-full text-center py-16">
               <p className="text-muted-foreground text-lg">
@@ -76,7 +76,7 @@ const Index = () => {
         </div>
 
         {/* Prompt Vault Section */}
-        <section className="max-w-xl">
+        <section className="max-w-full">
           <h2 className="text-xl font-semibold text-foreground mb-4">
             Prompt Vault
           </h2>
