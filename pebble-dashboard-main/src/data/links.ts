@@ -39,7 +39,7 @@ export const links: LinkItem[] = [
     { id: "ai-2", name: "Claude", category: "ai", subcategory: "chatbot", tag: "LLM", url: "https://claude.ai", desc: "AI assistant by Anthropic", pricing: "Freemium", isHot: true },
     { id: "ai-3", name: "Google Gemini", category: "ai", subcategory: "chatbot", tag: "LLM", url: "https://gemini.google.com", desc: "Google's multimodal AI", pricing: "Freemium", isHot: true },
     { id: "ai-38", name: "Perplexity", category: "ai", subcategory: "chatbot", tag: "Search", url: "https://perplexity.ai", desc: "AI search assistant", pricing: "Freemium", studentOffer: "Free Pro (GitHub Student Pack)", isHot: true },
-    { id: "ai-grok", name: "Grok", category: "ai", subcategory: "chatbot", tag: "LLM", url: "https://grok.x.ai", desc: "xAI's conversational AI", pricing: "Paid", isHot: true },
+    { id: "ai-grok", name: "Grok", category: "ai", subcategory: "chatbot", tag: "LLM", url: "https://grok.x.ai", desc: "xAI's conversational AI", pricing: "Free Trial", isHot: true },
     { id: "ai-qwen", name: "Qwen", category: "ai", subcategory: "chatbot", tag: "LLM", url: "https://qwen.ai", desc: "Alibaba's powerful AI chat", pricing: "Free", isHot: true },
     { id: "ai-mistral", name: "Mistral Chat", category: "ai", subcategory: "chatbot", tag: "LLM", url: "https://chat.mistral.ai", desc: "Open-weight model leader", pricing: "Freemium", isHot: true },
     { id: "ai-deepseek", name: "DeepSeek", category: "ai", subcategory: "chatbot", tag: "Reasoning", url: "https://chat.deepseek.com", desc: "Long-context reasoning", pricing: "Free", isHot: true },
@@ -84,7 +84,7 @@ export const links: LinkItem[] = [
     { id: "ai-runway", name: "Runway", category: "ai", subcategory: "generator", tag: "Video", url: "https://runwayml.com", desc: "AI video generation", pricing: "Free Trial" },
     { id: "ai-stable", name: "Stable Diffusion", category: "ai", subcategory: "generator", tag: "Image", url: "https://stability.ai", desc: "Open source image gen", pricing: "Free" },
     { id: "ai-suno", name: "Suno AI", category: "ai", subcategory: "generator", tag: "Music", url: "https://suno.ai", desc: "AI music generation", pricing: "Freemium", isHot: true },
-    { id: "ai-sora", name: "Sora", category: "ai", subcategory: "generator", tag: "Video", url: "https://openai.com/sora", desc: "OpenAI video generation", pricing: "Paid", isHot: true },
+    { id: "ai-sora", name: "Sora", category: "ai", subcategory: "generator", tag: "Video", url: "https://openai.com/sora", desc: "OpenAI video generation", pricing: "Free Trial", isHot: true },
     { id: "ai-leonardo", name: "Leonardo.Ai", category: "ai", subcategory: "generator", tag: "Image", url: "https://leonardo.ai", desc: "Production quality assets", pricing: "Freemium", isHot: true },
     { id: "ai-ideogram", name: "Ideogram", category: "ai", subcategory: "generator", tag: "Image", url: "https://ideogram.ai", desc: "Text-accurate image gen", pricing: "Freemium" },
     { id: "ai-pika", name: "Pika", category: "ai", subcategory: "generator", tag: "Video", url: "https://pika.art", desc: "Text-to-video platform", pricing: "Freemium" },
@@ -93,7 +93,7 @@ export const links: LinkItem[] = [
     // Multi-function AI (also appears in Chatbots - these generate images/media too)
     { id: "ai-chatgpt-gen", name: "ChatGPT", category: "ai", subcategory: "generator", tag: "Image", url: "https://chatgpt.com", desc: "GPT-4 + DALL-E image gen", pricing: "Freemium", isHot: true },
     { id: "ai-gemini-gen", name: "Google Gemini", category: "ai", subcategory: "generator", tag: "Image", url: "https://gemini.google.com", desc: "Gemini image generation", pricing: "Freemium", isHot: true },
-    { id: "ai-grok-gen", name: "Grok", category: "ai", subcategory: "generator", tag: "Image", url: "https://grok.x.ai", desc: "Grok image generation", pricing: "Paid", isHot: true },
+    { id: "ai-grok-gen", name: "Grok", category: "ai", subcategory: "generator", tag: "Image", url: "https://grok.x.ai", desc: "Grok image generation", pricing: "Free Trial", isHot: true },
 
     // ===== DEV ECOSYSTEM =====
     // Hosting & Cloud
