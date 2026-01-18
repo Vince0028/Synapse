@@ -405,6 +405,65 @@ Platform Notes:
 • Claude: Longer context, reasoning frameworks
 • Gemini: Creative tasks, comparative analysis`,
     },
+    {
+        id: "prompt-frameworks",
+        title: "8 Essential Prompt Frameworks",
+        content: `Master AI interaction with these 8 strategic frameworks:
+
+1. TAG (Task, Action, Goal)
+• Task: What needs to be done?
+• Action: How should it be done?
+• Goal: What is the end result?
+Use for: Simple, clear instructions.
+
+2. RTF (Role, Task, Format)
+• Role: Who is the AI? (e.g., "Act as a lawyer")
+• Task: What must it do?
+• Format: How should the output look? (Table, list, JSON)
+Use for: Specific formatting needs.
+
+3. CARE (Context, Action, Result, Example)
+• Context: Background info
+• Action: The core task
+• Result: Desired outcome
+• Example: Show exactly what you want
+Use for: Complex tasks needing high accuracy.
+
+4. RACE (Role, Action, Context, Expectation)
+• Role: AI's persona
+• Action: The task
+• Context: Background details
+• Expectation: Success criteria/format
+Use for: Comprehensive, structured requests.
+
+5. CRISPE (Capacity, Insight, Statement, Personality, Experiment)
+• Capacity/Role: AI's role
+• Insight: Context/Background
+• Statement: The request
+• Personality: Tone/Style
+• Experiment: "Give me multiple options"
+Use for: Creative and experimental outputs.
+
+6. AIDA (Attention, Interest, Desire, Action)
+• Attention: Grab the reader's eye
+• Interest: Keep them reading
+• Desire: Make them want it
+• Action: Tell them what to do
+Use for: Marketing, copywriting, sales.
+
+7. STAR (Situation, Task, Action, Result)
+• Situation: The scenario
+• Task: What needs solving
+• Action: Steps to take
+• Result: The outcome
+Use for: Storytelling, interview prep, case studies.
+
+8. BAB (Before, After, Bridge)
+• Before: Current problem state
+• After: Desired future state
+• Bridge: How to get there
+Use for: Persuasive writing, problem-solving strategy.`,
+    },
 ];
 
 export const promptVault = prompts[0];
