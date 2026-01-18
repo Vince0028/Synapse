@@ -254,7 +254,7 @@ export const links: LinkItem[] = [
     { id: "edu-udemy", name: "Udemy", category: "student", subcategory: "study", tag: "Courses", url: "https://udemy.com", desc: "Video courses", pricing: "Freemium" },
     { id: "edu-5", name: "Unstuck Study", category: "student", subcategory: "study", tag: "Support", url: "https://unstuckstudy.com", desc: "Study help platform", pricing: "Freemium" },
     { id: "edu-quizlet", name: "Quizlet", category: "student", subcategory: "study", tag: "Flashcards", url: "https://quizlet.com", desc: "Flashcard learning", pricing: "Freemium" },
-    { id: "edu-gdrive", name: "Google Drive", category: "student", subcategory: "study", tag: "Storage", url: "https://drive.google.com", desc: "Cloud storage", pricing: "Freemium", isHot: true },
+
 
     // Writing Support
     { id: "prod-49", name: "Grammarly", category: "student", subcategory: "writing", tag: "Grammar", url: "https://grammarly.com", desc: "Writing assistance", pricing: "Freemium", isHot: true },
