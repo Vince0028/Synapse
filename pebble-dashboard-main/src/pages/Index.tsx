@@ -138,56 +138,60 @@ const Index = () => {
 
           <main className="container mx-auto px-6 py-8 space-y-8 pb-32">
             {/* Search and Filters */}
-            <div className="space-y-4 max-w-2xl mx-auto">
+            <div className="space-y-6 w-full">
               {activeCategory !== "prompts" && (
                 <>
-                  <SearchBar value={searchQuery} onChange={setSearchQuery} />
+                  <div className="max-w-2xl mx-auto space-y-4">
+                    <SearchBar value={searchQuery} onChange={setSearchQuery} />
 
-                  <div className="flex flex-wrap gap-2 justify-center">
-                    <button
-                      onClick={() => setPricingFilter(pricingFilter === "Free" ? null : "Free")}
-                      className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors border ${pricingFilter === "Free"
-                        ? "bg-green-100 text-green-700 border-green-200 dark:bg-green-900/30 dark:text-green-300 dark:border-green-800"
-                        : "bg-secondary hover:bg-secondary/80 text-secondary-foreground border-transparent"
-                        }`}
-                    >
-                      Free Only
-                    </button>
-                    <button
-                      onClick={() => setPricingFilter(pricingFilter === "Paid" ? null : "Paid")}
-                      className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors border ${pricingFilter === "Paid"
-                        ? "bg-blue-100 text-blue-700 border-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:border-blue-800"
-                        : "bg-secondary hover:bg-secondary/80 text-secondary-foreground border-transparent"
-                        }`}
-                    >
-                      Paid / Freemium
-                    </button>
-                    <button
-                      onClick={() => setStudentFilter(!studentFilter)}
-                      className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors border ${studentFilter
-                        ? "bg-indigo-100 text-indigo-700 border-indigo-200 dark:bg-indigo-900/30 dark:text-indigo-300 dark:border-indigo-800"
-                        : "bg-secondary hover:bg-secondary/80 text-secondary-foreground border-transparent"
-                        }`}
-                    >
-                      Student Offers
-                    </button>
+                    <div className="flex flex-wrap gap-2 justify-center">
+                      <button
+                        onClick={() => setPricingFilter(pricingFilter === "Free" ? null : "Free")}
+                        className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors border ${pricingFilter === "Free"
+                          ? "bg-green-100 text-green-700 border-green-200 dark:bg-green-900/30 dark:text-green-300 dark:border-green-800"
+                          : "bg-secondary hover:bg-secondary/80 text-secondary-foreground border-transparent"
+                          }`}
+                      >
+                        Free Only
+                      </button>
+                      <button
+                        onClick={() => setPricingFilter(pricingFilter === "Paid" ? null : "Paid")}
+                        className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors border ${pricingFilter === "Paid"
+                          ? "bg-blue-100 text-blue-700 border-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:border-blue-800"
+                          : "bg-secondary hover:bg-secondary/80 text-secondary-foreground border-transparent"
+                          }`}
+                      >
+                        Paid / Freemium
+                      </button>
+                      <button
+                        onClick={() => setStudentFilter(!studentFilter)}
+                        className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors border ${studentFilter
+                          ? "bg-indigo-100 text-indigo-700 border-indigo-200 dark:bg-indigo-900/30 dark:text-indigo-300 dark:border-indigo-800"
+                          : "bg-secondary hover:bg-secondary/80 text-secondary-foreground border-transparent"
+                          }`}
+                      >
+                        Student Offers
+                      </button>
+                    </div>
                   </div>
 
-                  {/* Dynamic Tag Filters */}
+                  {/* Dynamic Tag Filters - Wider Container */}
                   {availableTags.length > 0 && (
-                    <div className="flex flex-wrap gap-2 justify-center">
-                      {availableTags.map((tag: string) => (
-                        <button
-                          key={tag}
-                          onClick={() => setTagFilter(tagFilter === tag ? null : tag)}
-                          className={`px-3 py-1 rounded-full text-xs font-medium transition-colors border ${tagFilter === tag
-                            ? "bg-primary text-primary-foreground border-primary"
-                            : "bg-secondary/50 hover:bg-secondary text-secondary-foreground border-transparent"
-                            }`}
-                        >
-                          {tag}
-                        </button>
-                      ))}
+                    <div className="max-w-6xl mx-auto">
+                      <div className="flex flex-wrap gap-2 justify-center">
+                        {availableTags.map((tag: string) => (
+                          <button
+                            key={tag}
+                            onClick={() => setTagFilter(tagFilter === tag ? null : tag)}
+                            className={`px-3 py-1 rounded-full text-xs font-medium transition-colors border ${tagFilter === tag
+                              ? "bg-primary text-primary-foreground border-primary"
+                              : "bg-secondary/50 hover:bg-secondary text-secondary-foreground border-transparent"
+                              }`}
+                          >
+                            {tag}
+                          </button>
+                        ))}
+                      </div>
                     </div>
                   )}
                 </>
