@@ -129,8 +129,8 @@ export function AppSidebar({ activeCategory, onCategoryChange, ...props }: AppSi
         <Sidebar {...props}>
             <SidebarHeader>
                 <div className="flex items-center gap-2 px-2 py-4">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-                        <LayoutGrid className="size-4" />
+                    <div className="flex h-12 w-12 items-center justify-center rounded-lg overflow-hidden">
+                        <img src="/logo/synapce_logo.png" alt="Synapse Logo" className="w-full h-full object-cover" />
                     </div>
                     <div className="flex flex-col gap-0.5 leading-none">
                         <span className="font-semibold text-lg tracking-tight">Synapse</span>
