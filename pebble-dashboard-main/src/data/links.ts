@@ -48,7 +48,7 @@ export const links: LinkItem[] = [
     { id: "ai-7", name: "StealthWriter", category: "ai", subcategory: "humanizer", tag: "Humanizer", url: "https://stealthwriter.ai", desc: "Bypass AI detectors", pricing: "Freemium", isHot: true },
     { id: "ai-33", name: "Humanize AI", category: "ai", subcategory: "humanizer", tag: "Humanizer", url: "https://humanizeai.pro", desc: "Converts AI content into human-like writing", pricing: "Freemium" },
     { id: "ai-hum2", name: "AI Humanizer", category: "ai", subcategory: "humanizer", tag: "Humanizer", url: "https://aihumanizer.ai", desc: "Humanize AI text", pricing: "Freemium" },
-    { id: "ai-undetect", name: "Undetectable AI", category: "ai", subcategory: "humanizer", tag: "Humanizer", url: "https://undetectable.ai", desc: "Make AI content undetectable", pricing: "Freemium", isHot: true },
+    { id: "ai-undetect", name: "Undetectable AI", category: "ai", subcategory: "detector", tag: "Detector", url: "https://undetectable.ai", desc: "Make AI content undetectable", pricing: "Freemium", isHot: true },
 
     // AI Detectors
     { id: "ai-8", name: "GPTZero", category: "ai", subcategory: "detector", tag: "Detector", url: "https://gptzero.me", desc: "AI content detection", pricing: "Freemium", isHot: true },
