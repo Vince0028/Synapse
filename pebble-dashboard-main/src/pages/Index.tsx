@@ -44,7 +44,7 @@ const Index = () => {
 
   // Get available tags for current category
   const availableTags = useMemo(() => {
-    if (activeCategory === "all" || activeCategory === "prompts") return [];
+    if (activeCategory === "prompts") return [];
     const categoryLinks = links.filter((link) => {
       if (activeCategory === "all") return true;
       return link.subcategory === activeCategory || link.category === activeCategory;
@@ -117,9 +117,6 @@ const Index = () => {
             <div className="flex items-center gap-3">
               <SidebarTrigger />
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-                  <span className="text-primary-foreground font-bold text-lg">S</span>
-                </div>
                 <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600">
                   Synapse
                 </h1>

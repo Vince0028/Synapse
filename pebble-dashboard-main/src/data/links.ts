@@ -69,6 +69,7 @@ export const links: LinkItem[] = [
     // Generators (UI, Voice, Image, Video)
     { id: "ai-5", name: "v0.dev", category: "ai", subcategory: "generator", tag: "UI Gen", url: "https://v0.dev", desc: "Generate UI with AI", pricing: "Freemium", isHot: true },
     { id: "ai-lovable", name: "Lovable", category: "ai", subcategory: "generator", tag: "Full Stack", url: "https://lovable.dev", desc: "AI full-stack engineer", pricing: "Freemium", isHot: true },
+    { id: "ai-replit-gen", name: "Replit", category: "ai", subcategory: "generator", tag: "App Gen", url: "https://replit.com", desc: "Build apps with Replit Agent", pricing: "Freemium", isHot: true },
     { id: "ai-google-studio", name: "Google AI Studio", category: "ai", subcategory: "generator", tag: "Multimodal", url: "https://aistudio.google.com", desc: "Build with Gemini models", pricing: "Free" },
     { id: "tts-53", name: "ElevenLabs", category: "ai", subcategory: "generator", tag: "Voice", url: "https://elevenlabs.io", desc: "AI voice generator", pricing: "Freemium" },
     { id: "tts-54", name: "Resemble AI", category: "ai", subcategory: "generator", tag: "Voice", url: "https://resemble.ai", desc: "AI voice cloning", pricing: "Free Trial" },

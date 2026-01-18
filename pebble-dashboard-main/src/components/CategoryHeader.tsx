@@ -2,7 +2,7 @@ import { categories } from "@/data/links";
 
 interface CategoryHeaderProps {
   activeCategory: string;
-  resultCount: number;
+  resultCount?: number;
   title?: string;
 }
 
@@ -15,9 +15,11 @@ export function CategoryHeader({ activeCategory, resultCount, title }: CategoryH
       <h2 className="text-2xl font-semibold text-foreground mb-1">
         {displayTitle} {title ? "" : "Resources"}
       </h2>
-      <p className="text-muted-foreground">
-        {resultCount} {resultCount === 1 ? "link" : "links"} available
-      </p>
+      {resultCount !== undefined && (
+        <p className="text-muted-foreground">
+          {resultCount} {resultCount === 1 ? "link" : "links"} available
+        </p>
+      )}
     </div>
   );
 }
