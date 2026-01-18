@@ -7,13 +7,20 @@ import {
     Sparkles,
     Code2,
     Tv,
-    Globe,
-    Briefcase,
-    Volume2,
-    Newspaper,
     ChevronDown,
     ChevronRight,
-    FileText
+    Bot,
+    UserCheck,
+    Terminal,
+    Cpu,
+    Server,
+    Database,
+    Wrench,
+    BookOpen,
+    PenTool,
+    Video,
+    Newspaper,
+    Film
 } from "lucide-react"
 import {
     Sidebar,
@@ -26,6 +33,9 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
     SidebarRail,
+    SidebarMenuSub,
+    SidebarMenuSubItem,
+    SidebarMenuSubButton,
 } from "@/components/ui/sidebar"
 import {
     Collapsible,
@@ -33,22 +43,7 @@ import {
     CollapsibleTrigger,
 } from "@/components/ui/collapsible"
 
-// Map category IDs to their icons
-const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-    all: LayoutGrid,
-    education: GraduationCap,
-    design: Palette,
-    media: Play,
-    ai: Sparkles,
-    dev: Code2,
-    streaming: Tv,
-    builders: Globe,
-    productivity: Briefcase,
-    tts: Volume2,
-    news: Newspaper,
-};
-
-// Define the sidebar structure
+// Define the detailed sidebar structure
 const sidebarStructure = [
     {
         type: "single",
@@ -58,39 +53,57 @@ const sidebarStructure = [
     },
     {
         type: "group",
-        label: "PDF & Writing",
-        icon: FileText,
+        id: "ai",
+        label: "AI Powerhouse",
+        icon: Sparkles,
         items: [
-            { id: "education", label: "Education", icon: GraduationCap },
-            { id: "productivity", label: "Productivity", icon: Briefcase },
-            { id: "ai", label: "AI Tools", icon: Sparkles },
+            { id: "chatbot", label: "Chat Bots", icon: Bot },
+            { id: "humanizer", label: "Humanizers", icon: UserCheck },
+            { id: "coding-ai", label: "Coding Assistants", icon: Terminal },
+            { id: "ai-api", label: "AI APIs & Cloud", icon: Cpu },
+            { id: "generator", label: "Generators", icon: Sparkles },
         ]
     },
     {
         type: "group",
+        id: "dev",
+        label: "Dev Ecosystem",
+        icon: Code2,
+        items: [
+            { id: "hosting", label: "Hosting & Cloud", icon: Server },
+            { id: "database", label: "Databases", icon: Database },
+            { id: "ide", label: "IDEs & Editors", icon: Terminal },
+            { id: "devtools", label: "Tools & Utilities", icon: Wrench },
+        ]
+    },
+    {
+        type: "group",
+        id: "student",
+        label: "Student Center",
+        icon: GraduationCap,
+        items: [
+            { id: "study", label: "Study Tools", icon: BookOpen },
+            { id: "research", label: "Research", icon: BookOpen },
+            { id: "writing", label: "Writing Support", icon: PenTool },
+        ]
+    },
+    {
+        type: "group",
+        id: "creative",
         label: "Creative Studio",
         icon: Palette,
         items: [
-            { id: "design", label: "Design Tools", icon: Palette },
-            { id: "media", label: "Media & Video", icon: Play },
-            { id: "tts", label: "Text to Speech", icon: Volume2 },
+            { id: "design", label: "Design & UI", icon: Palette },
+            { id: "media", label: "Media & Video", icon: Video },
         ]
     },
     {
         type: "group",
-        label: "Development",
-        icon: Code2,
-        items: [
-            { id: "dev", label: "Dev Resources", icon: Code2 },
-            { id: "builders", label: "Website Builders", icon: Globe },
-        ]
-    },
-    {
-        type: "group",
+        id: "entertainment",
         label: "Entertainment",
         icon: Tv,
         items: [
-            { id: "streaming", label: "Streaming", icon: Tv },
+            { id: "streaming", label: "Streaming", icon: Film },
             { id: "news", label: "Tech News", icon: Newspaper },
         ]
     }
@@ -116,68 +129,64 @@ export function AppSidebar({ activeCategory, onCategoryChange, ...props }: AppSi
                 </div>
             </SidebarHeader>
             <SidebarContent>
-                {sidebarStructure.map((group, index) => {
-                    if (group.type === "single") {
-                        const Icon = group.icon;
-                        const isActive = activeCategory === group.id;
-                        return (
-                            <SidebarGroup key={group.id || index}>
-                                <SidebarMenu>
-                                    <SidebarMenuItem>
-                                        <SidebarMenuButton
-                                            isActive={isActive}
-                                            onClick={() => {
-                                                onCategoryChange(group.id!);
-                                                window.scrollTo({ top: 0, behavior: "smooth" });
-                                            }}
-                                            size="lg"
-                                        >
-                                            <Icon />
-                                            <span className="font-medium">{group.label}</span>
-                                        </SidebarMenuButton>
-                                    </SidebarMenuItem>
-                                </SidebarMenu>
-                            </SidebarGroup>
-                        );
-                    }
+                <SidebarMenu>
+                    {sidebarStructure.map((group, index) => {
+                        if (group.type === "single") {
+                            const Icon = group.icon;
+                            const isActive = activeCategory === group.id;
+                            return (
+                                <SidebarMenuItem key={group.id || index}>
+                                    <SidebarMenuButton
+                                        isActive={isActive}
+                                        onClick={() => {
+                                            onCategoryChange(group.id!);
+                                            window.scrollTo({ top: 0, behavior: "smooth" });
+                                        }}
+                                        size="lg"
+                                    >
+                                        <Icon />
+                                        <span className="font-medium">{group.label}</span>
+                                    </SidebarMenuButton>
+                                </SidebarMenuItem>
+                            );
+                        }
 
-                    return (
-                        <Collapsible key={index} defaultOpen className="group/collapsible">
-                            <SidebarGroup>
-                                <SidebarGroupLabel asChild>
-                                    <CollapsibleTrigger className="text-sm font-medium">
-                                        {group.label}
-                                        <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
+                        const GroupIcon = group.icon;
+                        return (
+                            <Collapsible key={group.id} defaultOpen className="group/collapsible">
+                                <SidebarMenuItem>
+                                    <CollapsibleTrigger asChild>
+                                        <SidebarMenuButton tooltip={group.label}>
+                                            <GroupIcon />
+                                            <span>{group.label}</span>
+                                            <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                                        </SidebarMenuButton>
                                     </CollapsibleTrigger>
-                                </SidebarGroupLabel>
-                                <CollapsibleContent>
-                                    <SidebarGroupContent>
-                                        <SidebarMenu>
+                                    <CollapsibleContent>
+                                        <SidebarMenuSub>
                                             {group.items?.map((item) => {
-                                                const Icon = item.icon;
                                                 const isActive = activeCategory === item.id;
                                                 return (
-                                                    <SidebarMenuItem key={item.id}>
-                                                        <SidebarMenuButton
+                                                    <SidebarMenuSubItem key={item.id}>
+                                                        <SidebarMenuSubButton
                                                             isActive={isActive}
                                                             onClick={() => {
                                                                 onCategoryChange(item.id);
                                                                 window.scrollTo({ top: 0, behavior: "smooth" });
                                                             }}
                                                         >
-                                                            <Icon />
                                                             <span>{item.label}</span>
-                                                        </SidebarMenuButton>
-                                                    </SidebarMenuItem>
+                                                        </SidebarMenuSubButton>
+                                                    </SidebarMenuSubItem>
                                                 );
                                             })}
-                                        </SidebarMenu>
-                                    </SidebarGroupContent>
-                                </CollapsibleContent>
-                            </SidebarGroup>
-                        </Collapsible>
-                    );
-                })}
+                                        </SidebarMenuSub>
+                                    </CollapsibleContent>
+                                </SidebarMenuItem>
+                            </Collapsible>
+                        );
+                    })}
+                </SidebarMenu>
             </SidebarContent>
             <SidebarRail />
         </Sidebar>

@@ -1,6 +1,12 @@
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, GraduationCap } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { LinkItem } from "@/data/links";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 interface LinkCardProps {
   link: LinkItem;
@@ -30,12 +36,27 @@ export function LinkCard({ link, index }: LinkCardProps) {
               {link.name}
             </h3>
             <div className="flex items-center gap-1.5 ml-auto">
+              {link.studentOffer && (
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <div className="flex items-center justify-center w-5 h-5 rounded-full bg-indigo-100 text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-800 cursor-help">
+                        <GraduationCap className="w-3 h-3" />
+                      </div>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p className="text-xs font-semibold">Student: {link.studentOffer}</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+              )}
               <span className={cn(
                 "px-2 py-0.5 rounded-full text-[10px] uppercase font-bold tracking-wide border",
                 link.pricing === "Free" && "bg-green-100 text-green-700 border-green-200 dark:bg-green-900/30 dark:text-green-300 dark:border-green-800",
                 link.pricing === "Freemium" && "bg-blue-100 text-blue-700 border-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:border-blue-800",
                 link.pricing === "Paid" && "bg-orange-100 text-orange-700 border-orange-200 dark:bg-orange-900/30 dark:text-orange-300 dark:border-orange-800",
-                link.pricing === "Trial" && "bg-purple-100 text-purple-700 border-purple-200 dark:bg-purple-900/30 dark:text-purple-300 dark:border-purple-800",
+                link.pricing === "Free Trial" && "bg-purple-100 text-purple-700 border-purple-200 dark:bg-purple-900/30 dark:text-purple-300 dark:border-purple-800",
+                link.pricing === "Daily Credits" && "bg-pink-100 text-pink-700 border-pink-200 dark:bg-pink-900/30 dark:text-pink-300 dark:border-pink-800",
               )}>
                 {link.pricing}
               </span>

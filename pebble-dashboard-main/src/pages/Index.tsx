@@ -11,19 +11,63 @@ import { links } from "@/data/links";
 const Index = () => {
   const [activeCategory, setActiveCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
+  const [pricingFilter, setPricingFilter] = useState<string | null>(null);
+  const [studentFilter, setStudentFilter] = useState(false);
+
+  const categoryLabels: Record<string, string> = {
+    all: "All Resources",
+    ai: "AI Powerhouse",
+    chatbot: "Chat Bots",
+    humanizer: "Humanizers",
+    "coding-ai": "Coding Assistants",
+    "ai-api": "AI APIs & Cloud",
+    generator: "Generators",
+    dev: "Dev Ecosystem",
+    hosting: "Hosting & Cloud",
+    database: "Databases",
+    ide: "IDEs & Editors",
+    devtools: "Tools & Utilities",
+    student: "Student Center",
+    study: "Study Tools",
+    research: "Research",
+    writing: "Writing Support",
+    creative: "Creative Studio",
+    design: "Design & UI",
+    media: "Media & Video",
+    entertainment: "Entertainment",
+    streaming: "Streaming",
+    news: "Tech News"
+  };
 
   const filteredLinks = useMemo(() => {
     return links.filter((link) => {
-      const matchesCategory = activeCategory === "all" || link.category === activeCategory;
+      let matchesCategory = false;
+
+      if (activeCategory === "all") {
+        matchesCategory = true;
+      } else {
+        matchesCategory = link.subcategory === activeCategory || link.category === activeCategory;
+      }
+
       const matchesSearch =
         searchQuery === "" ||
         link.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         link.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
         link.tag.toLowerCase().includes(searchQuery.toLowerCase());
 
-      return matchesCategory && matchesSearch;
+      const matchesPricing = pricingFilter
+        ? pricingFilter === "Free"
+          ? link.pricing === "Free"
+          : pricingFilter === "Paid"
+            ? link.pricing !== "Free"
+            : true
+        : true;
+
+      const matchesStudent = studentFilter ? !!link.studentOffer : true;
+
+      return matchesCategory && matchesSearch && matchesPricing && matchesStudent;
     });
-  }, [activeCategory, searchQuery]);
+  }, [activeCategory, searchQuery, pricingFilter, studentFilter]);
 
   return (
     <SidebarProvider>
@@ -43,7 +87,7 @@ const Index = () => {
           </header>
 
           {/* Main Content */}
-          <main className="p-6 md:p-8 space-y-12 max-w-[1600px] mx-auto">
+          <main className="p-6 md:p-8 space-y-8 max-w-[1600px] mx-auto">
             {/* Page Title */}
             <div className="space-y-2">
               <h1 className="text-4xl font-bold text-foreground tracking-tight">
@@ -54,14 +98,45 @@ const Index = () => {
               </p>
             </div>
 
-            {/* Search */}
-            <div>
+            {/* Search and Filters */}
+            <div className="space-y-4">
               <SearchBar value={searchQuery} onChange={setSearchQuery} />
+
+              <div className="flex flex-wrap gap-2">
+                <button
+                  onClick={() => setPricingFilter(pricingFilter === "Free" ? null : "Free")}
+                  className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors border ${pricingFilter === "Free"
+                      ? "bg-green-100 text-green-700 border-green-200 dark:bg-green-900/30 dark:text-green-300 dark:border-green-800"
+                      : "bg-background hover:bg-muted text-muted-foreground border-input"
+                    }`}
+                >
+                  Free Only
+                </button>
+                <button
+                  onClick={() => setPricingFilter(pricingFilter === "Paid" ? null : "Paid")}
+                  className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors border ${pricingFilter === "Paid"
+                      ? "bg-orange-100 text-orange-700 border-orange-200 dark:bg-orange-900/30 dark:text-orange-300 dark:border-orange-800"
+                      : "bg-background hover:bg-muted text-muted-foreground border-input"
+                    }`}
+                >
+                  Paid / Freemium
+                </button>
+                <button
+                  onClick={() => setStudentFilter(!studentFilter)}
+                  className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors border ${studentFilter
+                      ? "bg-indigo-100 text-indigo-700 border-indigo-200 dark:bg-indigo-900/30 dark:text-indigo-300 dark:border-indigo-800"
+                      : "bg-background hover:bg-muted text-muted-foreground border-input"
+                    }`}
+                >
+                  Student Offers
+                </button>
+              </div>
             </div>
 
             {/* Category Header */}
             <CategoryHeader
               activeCategory={activeCategory}
+              title={categoryLabels[activeCategory] || "Resources"}
               resultCount={filteredLinks.length}
             />
 
