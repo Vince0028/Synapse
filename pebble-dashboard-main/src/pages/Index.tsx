@@ -124,10 +124,13 @@ const Index = () => {
           <header className="sticky top-0 z-30 flex items-center justify-between px-6 py-4 bg-background/80 backdrop-blur-md border-b">
             <div className="flex items-center gap-3">
               <SidebarTrigger />
-              <div className="flex items-center gap-2">
-                <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600">
+              <div className="flex flex-col items-start">
+                <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600 leading-tight">
                   Synapse
                 </h1>
+                <p className="text-xs text-muted-foreground hidden md:block">
+                  The connection point between you and your digital toolkit.
+                </p>
               </div>
             </div>
 
