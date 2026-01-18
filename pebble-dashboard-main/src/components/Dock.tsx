@@ -1,10 +1,10 @@
-import { 
-  LayoutGrid, 
-  GraduationCap, 
-  Palette, 
-  Play, 
-  Sparkles, 
-  Code2, 
+import {
+  LayoutGrid,
+  GraduationCap,
+  Palette,
+  Play,
+  Sparkles,
+  Code2,
   Tv,
   Globe,
   Briefcase,
@@ -40,11 +40,14 @@ export function Dock({ activeCategory, onCategoryChange }: DockProps) {
         {categories.map((category, index) => {
           const Icon = iconMap[category.icon];
           const isActive = activeCategory === category.id;
-          
+
           return (
             <button
               key={category.id}
-              onClick={() => onCategoryChange(category.id)}
+              onClick={() => {
+                onCategoryChange(category.id);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
               className={cn(
                 "relative group p-3 rounded-full transition-all duration-300",
                 "hover:bg-secondary",
@@ -57,7 +60,7 @@ export function Dock({ activeCategory, onCategoryChange }: DockProps) {
                 "w-5 h-5 transition-transform duration-200",
                 "group-hover:scale-110"
               )} />
-              
+
               {/* Tooltip */}
               <span className={cn(
                 "absolute left-full ml-4 px-4 py-2 rounded-full",
