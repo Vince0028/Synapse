@@ -40,14 +40,14 @@ export const links: LinkItem[] = [
     { id: "ai-3", name: "Google Gemini", category: "ai", subcategory: "chatbot", tag: "LLM", url: "https://gemini.google.com", desc: "Google's multimodal AI", pricing: "Freemium", isHot: true },
     { id: "ai-38", name: "Perplexity", category: "ai", subcategory: "chatbot", tag: "Search", url: "https://perplexity.ai", desc: "AI search assistant", pricing: "Freemium", studentOffer: "Free Pro (GitHub Student Pack)", isHot: true },
     { id: "ai-grok", name: "Grok", category: "ai", subcategory: "chatbot", tag: "LLM", url: "https://grok.x.ai", desc: "xAI's conversational AI", pricing: "Freemium", isHot: true },
-    { id: "ai-qwen", name: "Qwen", category: "ai", subcategory: "chatbot", tag: "LLM", url: "https://qwen.ai", desc: "Alibaba's powerful AI chat", pricing: "Free" },
+    { id: "ai-qwen", name: "Qwen", category: "ai", subcategory: "chatbot", tag: "LLM", url: "https://qwen.ai", desc: "Alibaba's powerful AI chat", pricing: "Free", isHot: true },
 
     // Humanizers & Detectors
-    { id: "ai-7", name: "StealthWriter", category: "ai", subcategory: "humanizer", tag: "Humanizer", url: "https://stealthwriter.ai", desc: "Bypass AI detectors", pricing: "Freemium" },
+    { id: "ai-7", name: "StealthWriter", category: "ai", subcategory: "humanizer", tag: "Humanizer", url: "https://stealthwriter.ai", desc: "Bypass AI detectors", pricing: "Freemium", isHot: true },
     { id: "ai-33", name: "Humanize AI", category: "ai", subcategory: "humanizer", tag: "Humanizer", url: "https://humanizeai.pro", desc: "Converts AI content into human-like writing", pricing: "Freemium" },
-    { id: "ai-8", name: "GPTZero", category: "ai", subcategory: "humanizer", tag: "Detector", url: "https://gptzero.me", desc: "AI content detection", pricing: "Freemium" },
+    { id: "ai-8", name: "GPTZero", category: "ai", subcategory: "humanizer", tag: "Detector", url: "https://gptzero.me", desc: "AI content detection", pricing: "Freemium", isHot: true },
     { id: "ai-hum2", name: "AI Humanizer", category: "ai", subcategory: "humanizer", tag: "Humanizer", url: "https://aihumanizer.ai", desc: "Humanize AI text", pricing: "Freemium" },
-    { id: "ai-undetect", name: "Undetectable AI", category: "ai", subcategory: "humanizer", tag: "Humanizer", url: "https://undetectable.ai", desc: "Make AI content undetectable", pricing: "Freemium" },
+    { id: "ai-undetect", name: "Undetectable AI", category: "ai", subcategory: "humanizer", tag: "Humanizer", url: "https://undetectable.ai", desc: "Make AI content undetectable", pricing: "Freemium", isHot: true },
     { id: "ai-originality", name: "Originality.ai", category: "ai", subcategory: "humanizer", tag: "Detector", url: "https://originality.ai", desc: "AI & plagiarism checker", pricing: "Free Trial" },
 
     // Coding Assistants
@@ -67,8 +67,8 @@ export const links: LinkItem[] = [
     { id: "ai-hugging", name: "Hugging Face", category: "ai", subcategory: "ai-api", tag: "Models", url: "https://huggingface.co", desc: "ML models & datasets", pricing: "Freemium" },
 
     // Generators (UI, Voice, Image, Video)
-    { id: "ai-5", name: "v0.dev", category: "ai", subcategory: "generator", tag: "UI Gen", url: "https://v0.dev", desc: "Generate UI with AI", pricing: "Freemium" },
-    { id: "ai-lovable", name: "Lovable", category: "ai", subcategory: "generator", tag: "Full Stack", url: "https://lovable.dev", desc: "AI full-stack engineer", pricing: "Freemium" },
+    { id: "ai-5", name: "v0.dev", category: "ai", subcategory: "generator", tag: "UI Gen", url: "https://v0.dev", desc: "Generate UI with AI", pricing: "Freemium", isHot: true },
+    { id: "ai-lovable", name: "Lovable", category: "ai", subcategory: "generator", tag: "Full Stack", url: "https://lovable.dev", desc: "AI full-stack engineer", pricing: "Freemium", isHot: true },
     { id: "ai-google-studio", name: "Google AI Studio", category: "ai", subcategory: "generator", tag: "Multimodal", url: "https://aistudio.google.com", desc: "Build with Gemini models", pricing: "Free" },
     { id: "tts-53", name: "ElevenLabs", category: "ai", subcategory: "generator", tag: "Voice", url: "https://elevenlabs.io", desc: "AI voice generator", pricing: "Freemium" },
     { id: "tts-54", name: "Resemble AI", category: "ai", subcategory: "generator", tag: "Voice", url: "https://resemble.ai", desc: "AI voice cloning", pricing: "Free Trial" },
@@ -90,7 +90,7 @@ export const links: LinkItem[] = [
     // Hosting & Cloud
     { id: "dev-2", name: "Vercel", category: "dev", subcategory: "hosting", tag: "Hosting", url: "https://vercel.com", desc: "Develop. Preview. Ship.", pricing: "Freemium", studentOffer: "Hobby Plan is Free", isHot: true },
     { id: "dev-3", name: "Netlify", category: "dev", subcategory: "hosting", tag: "Hosting", url: "https://netlify.com", desc: "Fast site hosting", pricing: "Freemium", studentOffer: "Free Starter Plan", isHot: true },
-    { id: "dev-4", name: "Render", category: "dev", subcategory: "hosting", tag: "Cloud", url: "https://render.com", desc: "Unified cloud platform", pricing: "Freemium", studentOffer: "Free Tier Available" },
+    { id: "dev-4", name: "Render", category: "dev", subcategory: "hosting", tag: "Cloud", url: "https://render.com", desc: "Unified cloud platform", pricing: "Freemium", studentOffer: "Free Tier Available", isHot: true },
     { id: "dev-1", name: "GitHub", category: "dev", subcategory: "hosting", tag: "Repo", url: "https://github.com", desc: "Version control", pricing: "Freemium", studentOffer: "Free Pro (Student Pack)", isHot: true },
     { id: "dev-railway", name: "Railway", category: "dev", subcategory: "hosting", tag: "Cloud", url: "https://railway.app", desc: "Deploy apps instantly", pricing: "Freemium" },
     { id: "dev-fly", name: "Fly.io", category: "dev", subcategory: "hosting", tag: "Cloud", url: "https://fly.io", desc: "Run apps globally", pricing: "Freemium" },
@@ -99,7 +99,7 @@ export const links: LinkItem[] = [
     // Databases & Backend
     { id: "dev-5", name: "Nhost", category: "dev", subcategory: "database", tag: "Backend", url: "https://nhost.io", desc: "Serverless backend", pricing: "Freemium" },
     { id: "des-5", name: "ERDPlus", category: "dev", subcategory: "database", tag: "Modeling", url: "https://erdplus.com", desc: "Database modeling tool", pricing: "Free" },
-    { id: "dev-supabase", name: "Supabase", category: "dev", subcategory: "database", tag: "Backend", url: "https://supabase.com", desc: "Open source Firebase alternative", pricing: "Freemium" },
+    { id: "dev-supabase", name: "Supabase", category: "dev", subcategory: "database", tag: "Backend", url: "https://supabase.com", desc: "Open source Firebase alternative", pricing: "Freemium", isHot: true },
     { id: "dev-firebase", name: "Firebase", category: "dev", subcategory: "database", tag: "Backend", url: "https://firebase.google.com", desc: "Google's app platform", pricing: "Freemium" },
     { id: "dev-planetscale", name: "PlanetScale", category: "dev", subcategory: "database", tag: "Database", url: "https://planetscale.com", desc: "Serverless MySQL", pricing: "Freemium" },
     { id: "dev-mongodb", name: "MongoDB Atlas", category: "dev", subcategory: "database", tag: "Database", url: "https://mongodb.com/atlas", desc: "Cloud database service", pricing: "Freemium" },
@@ -125,6 +125,64 @@ export const links: LinkItem[] = [
     // Additional Hosting & Infrastructure
     { id: "dev-cfpages", name: "Cloudflare Pages", category: "dev", subcategory: "hosting", tag: "Hosting", url: "https://pages.cloudflare.com", desc: "Ultra-fast global hosting", pricing: "Freemium" },
     { id: "dev-appwrite", name: "Appwrite", category: "dev", subcategory: "database", tag: "Backend", url: "https://appwrite.io", desc: "Open-source Firebase alt", pricing: "Freemium" },
+
+    // ===== PUBLIC APIs =====
+    // Fun & Entertainment APIs
+    { id: "api-httpcat", name: "HTTP Cat", category: "dev", subcategory: "public-apis", tag: "Fun API", url: "https://http.cat", desc: "HTTP status codes as cats", pricing: "Free" },
+    { id: "api-pokeapi", name: "PokéAPI", category: "dev", subcategory: "public-apis", tag: "Game API", url: "https://pokeapi.co", desc: "Pokémon data encyclopedia", pricing: "Free", isHot: true },
+    { id: "api-jikan", name: "Jikan", category: "dev", subcategory: "public-apis", tag: "Anime API", url: "https://jikan.moe", desc: "MyAnimeList unofficial API", pricing: "Free", isHot: true },
+    { id: "api-anilist", name: "AniList", category: "dev", subcategory: "public-apis", tag: "Anime API", url: "https://anilist.gitbook.io/anilist-apiv2-docs", desc: "Modern anime/manga API", pricing: "Free" },
+    { id: "api-tracemoe", name: "Trace.moe", category: "dev", subcategory: "public-apis", tag: "Anime API", url: "https://trace.moe", desc: "Find anime from screenshot", pricing: "Free" },
+    { id: "api-imgflip", name: "Imgflip", category: "dev", subcategory: "public-apis", tag: "Fun API", url: "https://imgflip.com/api", desc: "Meme generator API", pricing: "Free" },
+    { id: "api-chucknorris", name: "ChuckNorris.io", category: "dev", subcategory: "public-apis", tag: "Fun API", url: "https://api.chucknorris.io", desc: "Chuck Norris jokes", pricing: "Free" },
+    { id: "api-dadjoke", name: "icanhazdadjoke", category: "dev", subcategory: "public-apis", tag: "Fun API", url: "https://icanhazdadjoke.com/api", desc: "Best dad jokes API", pricing: "Free" },
+
+    // Data & Test APIs
+    { id: "api-jsonplaceholder", name: "JSONPlaceholder", category: "dev", subcategory: "public-apis", tag: "Test API", url: "https://jsonplaceholder.typicode.com", desc: "Fake REST API for testing", pricing: "Free", isHot: true },
+    { id: "api-randomuser", name: "RandomUser", category: "dev", subcategory: "public-apis", tag: "Test API", url: "https://randomuser.me", desc: "Generate fake user data", pricing: "Free" },
+    { id: "api-fakerapi", name: "FakerAPI", category: "dev", subcategory: "public-apis", tag: "Test API", url: "https://fakerapi.it", desc: "Generate any fake data", pricing: "Free" },
+    { id: "api-httpbin", name: "httpbin", category: "dev", subcategory: "public-apis", tag: "Test API", url: "https://httpbin.org", desc: "Test HTTP requests", pricing: "Free" },
+
+    // Media & Photo APIs
+    { id: "api-unsplash", name: "Unsplash API", category: "dev", subcategory: "public-apis", tag: "Photo API", url: "https://unsplash.com/developers", desc: "Free high-res photos", pricing: "Free", isHot: true },
+    { id: "api-pexels", name: "Pexels API", category: "dev", subcategory: "public-apis", tag: "Photo API", url: "https://www.pexels.com/api", desc: "Free stock photos/videos", pricing: "Free" },
+    { id: "api-giphy", name: "Giphy API", category: "dev", subcategory: "public-apis", tag: "GIF API", url: "https://developers.giphy.com", desc: "Search & integrate GIFs", pricing: "Free", isHot: true },
+
+    // Finance & Crypto APIs
+    { id: "api-coingecko", name: "CoinGecko", category: "dev", subcategory: "public-apis", tag: "Crypto API", url: "https://www.coingecko.com/en/api", desc: "Crypto prices & market data", pricing: "Free", isHot: true },
+    { id: "api-exchangerate", name: "ExchangeRate-API", category: "dev", subcategory: "public-apis", tag: "Finance API", url: "https://www.exchangerate-api.com", desc: "Currency conversion", pricing: "Free" },
+    { id: "api-alphavantage", name: "Alpha Vantage", category: "dev", subcategory: "public-apis", tag: "Finance API", url: "https://www.alphavantage.co", desc: "Stock market data", pricing: "Free" },
+
+    // Weather & Geo APIs
+    { id: "api-openweather", name: "OpenWeatherMap", category: "dev", subcategory: "public-apis", tag: "Weather API", url: "https://openweathermap.org/api", desc: "Most popular weather API", pricing: "Freemium", isHot: true },
+    { id: "api-locationiq", name: "LocationIQ", category: "dev", subcategory: "public-apis", tag: "Geo API", url: "https://locationiq.com", desc: "Geocoding & maps", pricing: "Freemium" },
+    { id: "api-nagerdate", name: "Nager.Date", category: "dev", subcategory: "public-apis", tag: "Calendar API", url: "https://date.nager.at", desc: "Public holidays 90+ countries", pricing: "Free" },
+
+    // Security & Validation APIs
+    { id: "api-virustotal", name: "VirusTotal", category: "dev", subcategory: "public-apis", tag: "Security API", url: "https://developers.virustotal.com", desc: "Scan files/URLs for threats", pricing: "Freemium", isHot: true },
+    { id: "api-hibp", name: "HaveIBeenPwned", category: "dev", subcategory: "public-apis", tag: "Security API", url: "https://haveibeenpwned.com/API/v3", desc: "Check password breaches", pricing: "Freemium", isHot: true },
+    { id: "api-shodan", name: "Shodan", category: "dev", subcategory: "public-apis", tag: "Security API", url: "https://developer.shodan.io", desc: "Internet device search", pricing: "Freemium" },
+
+    // Social & Communication APIs
+    { id: "api-discord", name: "Discord API", category: "dev", subcategory: "public-apis", tag: "Social API", url: "https://discord.com/developers", desc: "Build Discord bots", pricing: "Free", isHot: true },
+    { id: "api-telegram", name: "Telegram Bot API", category: "dev", subcategory: "public-apis", tag: "Social API", url: "https://core.telegram.org/bots/api", desc: "Create Telegram bots", pricing: "Free", isHot: true },
+    { id: "api-reddit", name: "Reddit API", category: "dev", subcategory: "public-apis", tag: "Social API", url: "https://www.reddit.com/dev/api", desc: "Reddit posts & comments", pricing: "Free" },
+
+    // Music & Media APIs
+    { id: "api-spotify", name: "Spotify API", category: "dev", subcategory: "public-apis", tag: "Music API", url: "https://developer.spotify.com", desc: "Music catalog & playlists", pricing: "Free", isHot: true },
+    { id: "api-genius", name: "Genius API", category: "dev", subcategory: "public-apis", tag: "Music API", url: "https://genius.com/developers", desc: "Song lyrics database", pricing: "Free" },
+    { id: "api-youtube", name: "YouTube API", category: "dev", subcategory: "public-apis", tag: "Video API", url: "https://developers.google.com/youtube", desc: "YouTube video data", pricing: "Free", isHot: true },
+
+    // Knowledge & Data APIs
+    { id: "api-wikipedia", name: "Wikipedia API", category: "dev", subcategory: "public-apis", tag: "Data API", url: "https://www.mediawiki.org/wiki/API", desc: "World's encyclopedia", pricing: "Free", isHot: true },
+    { id: "api-nasa", name: "NASA API", category: "dev", subcategory: "public-apis", tag: "Data API", url: "https://api.nasa.gov", desc: "Space data & rover images", pricing: "Free", isHot: true },
+    { id: "api-spacex", name: "SpaceX API", category: "dev", subcategory: "public-apis", tag: "Data API", url: "https://github.com/r-spacex/SpaceX-API", desc: "SpaceX launches & rockets", pricing: "Free" },
+    { id: "api-googlebooks", name: "Google Books API", category: "dev", subcategory: "public-apis", tag: "Data API", url: "https://developers.google.com/books", desc: "Book search & metadata", pricing: "Free" },
+    { id: "api-openlibrary", name: "Open Library", category: "dev", subcategory: "public-apis", tag: "Data API", url: "https://openlibrary.org/developers/api", desc: "Free book database", pricing: "Free" },
+
+    // Translation & NLP APIs
+    { id: "api-libretranslate", name: "LibreTranslate", category: "dev", subcategory: "public-apis", tag: "NLP API", url: "https://libretranslate.com", desc: "Open-source translation", pricing: "Free" },
+    { id: "api-dictionary", name: "Free Dictionary", category: "dev", subcategory: "public-apis", tag: "NLP API", url: "https://dictionaryapi.dev", desc: "Word definitions & phonetics", pricing: "Free" },
 
     // ===== STUDENT CENTER =====
     // Research & Documentation
@@ -156,11 +214,11 @@ export const links: LinkItem[] = [
     { id: "edu-udemy", name: "Udemy", category: "student", subcategory: "study", tag: "Courses", url: "https://udemy.com", desc: "Video courses", pricing: "Freemium" },
     { id: "edu-5", name: "Unstuck Study", category: "student", subcategory: "study", tag: "Support", url: "https://unstuckstudy.com", desc: "Study help platform", pricing: "Freemium" },
     { id: "edu-quizlet", name: "Quizlet", category: "student", subcategory: "study", tag: "Flashcards", url: "https://quizlet.com", desc: "Flashcard learning", pricing: "Freemium" },
-    { id: "edu-gdrive", name: "Google Drive", category: "student", subcategory: "study", tag: "Storage", url: "https://drive.google.com", desc: "Cloud storage", pricing: "Freemium", studentOffer: "Free 15GB" },
+    { id: "edu-gdrive", name: "Google Drive", category: "student", subcategory: "study", tag: "Storage", url: "https://drive.google.com", desc: "Cloud storage", pricing: "Freemium", studentOffer: "Free 15GB", isHot: true },
 
     // Writing Support
     { id: "prod-49", name: "Grammarly", category: "student", subcategory: "writing", tag: "Grammar", url: "https://grammarly.com", desc: "Writing assistance", pricing: "Freemium", isHot: true },
-    { id: "edu-9", name: "Scribbr AI", category: "student", subcategory: "writing", tag: "Academic", url: "https://scribbr.ai", desc: "Citation & proofreading", pricing: "Freemium" },
+    { id: "edu-9", name: "Scribbr AI", category: "student", subcategory: "writing", tag: "Academic", url: "https://scribbr.ai", desc: "Citation & proofreading", pricing: "Freemium", isHot: true },
     { id: "edu-7", name: "Rewritify", category: "student", subcategory: "writing", tag: "Rephrasing", url: "https://rewritify.com", desc: "Text rewriter", pricing: "Freemium" },
     { id: "edu-8", name: "JotBot", category: "student", subcategory: "writing", tag: "Assistant", url: "https://jotbot.com", desc: "Essay writer", pricing: "Freemium" },
     { id: "edu-quillbot", name: "QuillBot", category: "student", subcategory: "writing", tag: "Paraphrase", url: "https://quillbot.com", desc: "AI paraphraser", pricing: "Freemium" },

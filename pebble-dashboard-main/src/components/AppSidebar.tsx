@@ -20,7 +20,8 @@ import {
     PenTool,
     Video,
     Newspaper,
-    Film
+    Film,
+    Globe
 } from "lucide-react"
 import {
     Sidebar,
@@ -74,6 +75,7 @@ const sidebarStructure = [
             { id: "database", label: "Databases", icon: Database },
             { id: "ide", label: "IDEs & Editors", icon: Terminal },
             { id: "devtools", label: "Tools & Utilities", icon: Wrench },
+            { id: "public-apis", label: "Public APIs", icon: Globe },
         ]
     },
     {
