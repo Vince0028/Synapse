@@ -418,16 +418,7 @@ export const links: LinkItem[] = [
     { id: "auto-bardeen", name: "Bardeen", category: "automation", subcategory: "no-code", tags: ["Browser", "Automation"], url: "https://bardeen.ai", desc: "Browser automation", pricing: "Freemium" },
     { id: "auto-magical", name: "Magical", category: "automation", subcategory: "no-code", tags: ["Text", "Automation"], url: "https://getmagical.com", desc: "Text expansion & automation", pricing: "Free" },
 
-    // Developer
-    { id: "auto-temporal", name: "Temporal", category: "automation", subcategory: "developer", tags: ["Workflows", "Durable"], url: "https://temporal.io", desc: "Durable workflow engine", pricing: "Freemium" },
-    { id: "auto-airbyte", name: "Airbyte", category: "automation", subcategory: "developer", tags: ["Data Sync", "Open Source"], url: "https://airbyte.com", desc: "Data integration platform", pricing: "Free" },
-    { id: "auto-airflow", name: "Apache Airflow", category: "automation", subcategory: "developer", tags: ["Workflows", "Data"], url: "https://airflow.apache.org", desc: "Workflow orchestration", pricing: "Free" },
-    { id: "auto-dagster", name: "Dagster", category: "automation", subcategory: "developer", tags: ["Data", "Pipelines"], url: "https://dagster.io", desc: "Data orchestration", pricing: "Freemium" },
 
-    // Agents
-    { id: "auto-autogen", name: "AutoGen Studio", category: "automation", subcategory: "agents", tags: ["Agents", "Microsoft"], url: "https://github.com/microsoft/autogen", desc: "Multi-agent framework", pricing: "Free" },
-    { id: "auto-crewai", name: "CrewAI", category: "automation", subcategory: "agents", tags: ["Agents", "Python"], url: "https://crewai.com", desc: "AI agent orchestration", pricing: "Free" },
-    { id: "auto-superagi", name: "SuperAGI", category: "automation", subcategory: "agents", tags: ["Agents", "Open Source"], url: "https://superagi.com", desc: "Autonomous AI agents", pricing: "Free" },
 
     // ===== ADDITIONAL LEARN & STUDY =====
     // Practice
@@ -561,6 +552,8 @@ export const links: LinkItem[] = [
     { id: "auto-pipedream", name: "Pipedream", category: "automation", subcategory: "developer", tags: ["Automation", "API"], url: "https://pipedream.com", desc: "Connect APIs remarkably fast", pricing: "Freemium" },
     { id: "auto-windmill", name: "Windmill", category: "automation", subcategory: "developer", tags: ["Scripts", "UI"], url: "https://windmill.dev", desc: "Turn scripts into internal UIs", pricing: "Freemium" },
     { id: "auto-nodered", name: "Node-RED", category: "automation", subcategory: "developer", tags: ["IoT", "Low-Code"], url: "https://nodered.org", desc: "Low-code for event-driven apps", pricing: "Free" },
+    { id: "auto-dagster", name: "Dagster", category: "automation", subcategory: "developer", tags: ["Data", "Pipelines"], url: "https://dagster.io", desc: "Data orchestration", pricing: "Freemium" },
+    { id: "auto-superagi", name: "SuperAGI", category: "automation", subcategory: "agents", tags: ["Agents", "Open Source"], url: "https://superagi.com", desc: "Autonomous AI agents", pricing: "Free" },
 
 ];
 
