@@ -2,7 +2,7 @@ import * as React from "react";
 import { ExternalLink, GraduationCap, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { LinkItem } from "@/data/links";
-import { useLinkVotes } from "@/hooks/useLinkVotes";
+import { useVotes } from "@/context/VotesContext";
 import {
   Tooltip,
   TooltipContent,
@@ -18,13 +18,10 @@ interface LinkCardProps {
 }
 
 export function LinkCard({ link, index, isFavorite = false, onToggleFavorite }: LinkCardProps) {
-  const { votes: serverVotes, updateVote } = useLinkVotes(link.id);
-  const [optimisticDelta, setOptimisticDelta] = React.useState(0);
+  const { votes, updateVote } = useVotes();
 
-  // Reset optimistic delta when server catches up
-  React.useEffect(() => {
-    setOptimisticDelta(0);
-  }, [serverVotes]);
+  // Get live vote count from global context (defaults to 0)
+  const voteCount = votes[link.id] || 0;
 
   const handleStarClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -33,18 +30,12 @@ export function LinkCard({ link, index, isFavorite = false, onToggleFavorite }: 
     // Determine action
     const isAdding = !isFavorite;
 
-    // 1. Optimistic Update (Immediate Feedback)
-    setOptimisticDelta(isAdding ? 1 : -1);
-
-    // 2. Call Parent (Update Color)
+    // 1. Call Parent (Update Color) - Instant local UI update
     onToggleFavorite?.(link.id);
 
-    // 3. Call DB
-    updateVote(isAdding);
+    // 2. Call Global Context (Update Count) - Instant local UI update + DB Sync
+    updateVote(link.id, isAdding);
   };
-
-  // Calculate what to show
-  const displayVotes = Math.max(0, serverVotes + optimisticDelta);
 
   return (
     <a
@@ -76,7 +67,7 @@ export function LinkCard({ link, index, isFavorite = false, onToggleFavorite }: 
       >
         <Star className={cn("w-3.5 h-3.5", isFavorite && "fill-current")} />
         <span className="text-xs font-semibold min-w-[12px] text-center">
-          {displayVotes}
+          {voteCount}
         </span>
       </button>
 

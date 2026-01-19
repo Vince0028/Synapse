@@ -56,8 +56,7 @@ export const links: LinkItem[] = [
     { id: "ai-chatgpt", name: "ChatGPT", category: "ai-chat", subcategory: "general", tags: ["LLM", "Chat"], url: "https://chat.openai.com", desc: "OpenAI's AI chatbot", pricing: "Freemium", isHot: true },
     { id: "ai-claude", name: "Claude", category: "ai-chat", subcategory: "general", tags: ["LLM", "Anthropic"], url: "https://claude.ai", desc: "Anthropic's helpful AI", pricing: "Freemium", isHot: true },
     { id: "ai-gemini", name: "Gemini", category: "ai-chat", subcategory: "general", tags: ["LLM", "Google"], url: "https://gemini.google.com", desc: "Google's AI model", pricing: "Free" },
-    { id: "ai-perplexity", name: "Perplexity", category: "ai-chat", subcategory: "search", tags: ["Search", "AI"], url: "https://perplexity.ai", desc: "AI-powered search engine", pricing: "Freemium", isHot: true },
-    { id: "ai-38", name: "Perplexity", category: "ai-chat", subcategory: "search", tags: ["Search", "Research", "Chat"], url: "https://perplexity.ai", desc: "AI search assistant", pricing: "Freemium", studentOffer: "Free Pro (GitHub Student Pack)", isHot: true },
+    { id: "ai-perplexity", name: "Perplexity", category: "ai-chat", subcategory: "search", tags: ["Search", "AI", "Research", "Chat"], url: "https://perplexity.ai", desc: "AI search assistant & engine", pricing: "Freemium", studentOffer: "Free Pro (GitHub Student Pack)", isHot: true },
     { id: "ai-grok", name: "Grok", category: "ai-chat", subcategory: "search", tags: ["Chat", "Real Time", "News"], url: "https://grok.x.ai", desc: "xAI's conversational AI", pricing: "Free Trial", isHot: true },
     { id: "ai-qwen", name: "Qwen", category: "ai-chat", subcategory: "reasoning", tags: ["Chat", "Reasoning", "Math"], url: "https://qwen.ai", desc: "Alibaba's powerful AI chat", pricing: "Free", isHot: true },
     { id: "ai-deepseek", name: "DeepSeek", category: "ai-chat", subcategory: "reasoning", tags: ["Chat", "Reasoning", "Coding"], url: "https://chat.deepseek.com", desc: "Long-context reasoning", pricing: "Free", isHot: true },
@@ -150,21 +149,7 @@ export const links: LinkItem[] = [
     { id: "dev-clerk", name: "Clerk", category: "deploy", subcategory: "auth", tags: ["Auth", "User Mgmt"], url: "https://clerk.com", desc: "Complete user management", pricing: "Freemium" },
     { id: "dev-auth0", name: "Auth0", category: "deploy", subcategory: "auth", tags: ["Auth", "Identity"], url: "https://auth0.com", desc: "Secure identity platform", pricing: "Freemium" },
 
-    // ===== AUTOMATE TASKS =====
-    // No Code
-    { id: "auto-zapier", name: "Zapier", category: "automation", subcategory: "no-code", tags: ["Automation", "No Code"], url: "https://zapier.com", desc: "Automate apps easily", pricing: "Freemium" },
-    { id: "auto-make", name: "Make", category: "automation", subcategory: "no-code", tags: ["Automation", "Visual"], url: "https://make.com", desc: "Visual automation platform", pricing: "Freemium" },
-    { id: "auto-activepieces", name: "Activepieces", category: "automation", subcategory: "no-code", tags: ["Open Source", "Automation"], url: "https://activepieces.com", desc: "Open source no-code business automation", pricing: "Freemium", isHot: true },
 
-    // Developer Auto
-    { id: "auto-n8n", name: "n8n", category: "automation", subcategory: "developer", tags: ["Automation", "Workflow", "Dev"], url: "https://n8n.io", desc: "Fair-code workflow automation", pricing: "Freemium", isHot: true },
-    { id: "auto-pipedream", name: "Pipedream", category: "automation", subcategory: "developer", tags: ["Automation", "API"], url: "https://pipedream.com", desc: "Connect APIs remarkably fast", pricing: "Freemium" },
-    { id: "auto-windmill", name: "Windmill", category: "automation", subcategory: "developer", tags: ["Scripts", "UI"], url: "https://windmill.dev", desc: "Turn scripts into internal UIs", pricing: "Freemium" },
-    { id: "auto-nodered", name: "Node-RED", category: "automation", subcategory: "developer", tags: ["IoT", "Low-Code"], url: "https://nodered.org", desc: "Low-code programming for event-driven apps", pricing: "Free" },
-
-    // AI Agents
-    { id: "auto-gumloop", name: "Gumloop", category: "automation", subcategory: "agents", tags: ["Automation", "AI Agent"], url: "https://gumloop.com", desc: "Automate ops with AI agents", pricing: "Freemium", isHot: true },
-    { id: "auto-lindy", name: "Lindy", category: "automation", subcategory: "agents", tags: ["AI Agent", "Assistant"], url: "https://lindy.ai", desc: "AI employee for every task", pricing: "Freemium" },
 
     // ===== LEARN & STUDY =====
     // Coding Practice
@@ -568,6 +553,14 @@ export const links: LinkItem[] = [
     { id: "auto-autogen", name: "AutoGen", category: "automation", subcategory: "agents", tags: ["Agents", "Microsoft"], url: "https://github.com/microsoft/autogen", desc: "Multi-agent framework", pricing: "Free" },
     { id: "auto-crewai", name: "CrewAI", category: "automation", subcategory: "agents", tags: ["Agents", "Python"], url: "https://crewai.com", desc: "AI agent orchestration", pricing: "Free" },
     { id: "auto-langchain", name: "LangChain", category: "automation", subcategory: "agents", tags: ["LLM", "Framework"], url: "https://langchain.com", desc: "LLM app framework", pricing: "Free", isHot: true },
+    { id: "auto-gumloop", name: "Gumloop", category: "automation", subcategory: "agents", tags: ["Automation", "AI Agent"], url: "https://gumloop.com", desc: "Automate ops with AI agents", pricing: "Freemium", isHot: true },
+    { id: "auto-lindy", name: "Lindy", category: "automation", subcategory: "agents", tags: ["AI Agent", "Assistant"], url: "https://lindy.ai", desc: "AI employee for every task", pricing: "Freemium" },
+
+    // More Automation
+    { id: "auto-activepieces", name: "Activepieces", category: "automation", subcategory: "no-code", tags: ["Open Source", "Automation"], url: "https://activepieces.com", desc: "Open source no-code automation", pricing: "Freemium", isHot: true },
+    { id: "auto-pipedream", name: "Pipedream", category: "automation", subcategory: "developer", tags: ["Automation", "API"], url: "https://pipedream.com", desc: "Connect APIs remarkably fast", pricing: "Freemium" },
+    { id: "auto-windmill", name: "Windmill", category: "automation", subcategory: "developer", tags: ["Scripts", "UI"], url: "https://windmill.dev", desc: "Turn scripts into internal UIs", pricing: "Freemium" },
+    { id: "auto-nodered", name: "Node-RED", category: "automation", subcategory: "developer", tags: ["IoT", "Low-Code"], url: "https://nodered.org", desc: "Low-code for event-driven apps", pricing: "Free" },
 
 ];
 
