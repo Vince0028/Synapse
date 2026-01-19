@@ -43,20 +43,17 @@ export function SuggestWebsite({ className }: SuggestWebsiteProps) {
         setSubmitStatus("idle");
 
         try {
-            // Using Web3Forms - free and works from browser without CORS issues
-            const response = await fetch("https://api.web3forms.com/submit", {
+            // Call our serverless function which proxies to Brevo
+            const response = await fetch("/api/send-suggestion", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    access_key: import.meta.env.VITE_WEB3FORMS_KEY || "",
-                    subject: `🔗 New Website Suggestion: ${formData.websiteName}`,
-                    from_name: "Synapse Suggestion",
-                    website_name: formData.websiteName,
-                    website_url: formData.websiteUrl,
+                    websiteName: formData.websiteName,
+                    websiteUrl: formData.websiteUrl,
                     description: formData.description || "No description provided",
-                    email: formData.senderEmail,
+                    senderEmail: formData.senderEmail,
                 }),
             });
 
