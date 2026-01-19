@@ -18,16 +18,33 @@ interface LinkCardProps {
 }
 
 export function LinkCard({ link, index, isFavorite = false, onToggleFavorite }: LinkCardProps) {
-  const { votes, updateVote } = useLinkVotes(link.id);
+  const { votes: serverVotes, updateVote } = useLinkVotes(link.id);
+  const [optimisticDelta, setOptimisticDelta] = React.useState(0);
+
+  // Reset optimistic delta when server catches up
+  React.useEffect(() => {
+    setOptimisticDelta(0);
+  }, [serverVotes]);
 
   const handleStarClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
 
+    // Determine action
     const isAdding = !isFavorite;
+
+    // 1. Optimistic Update (Immediate Feedback)
+    setOptimisticDelta(isAdding ? 1 : -1);
+
+    // 2. Call Parent (Update Color)
     onToggleFavorite?.(link.id);
+
+    // 3. Call DB
     updateVote(isAdding);
   };
+
+  // Calculate what to show
+  const displayVotes = Math.max(0, serverVotes + optimisticDelta);
 
   return (
     <a
@@ -59,13 +76,13 @@ export function LinkCard({ link, index, isFavorite = false, onToggleFavorite }: 
       >
         <Star className={cn("w-3.5 h-3.5", isFavorite && "fill-current")} />
         <span className="text-xs font-semibold min-w-[12px] text-center">
-          {votes}
+          {displayVotes}
         </span>
       </button>
 
       <div className="flex items-start justify-between gap-4">
         <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-3 mb-2">
+          <div className="flex items-center gap-3 mb-2 pr-8">
             {link.isHot && (
               <span className="text-sm" title="Popular">🔥</span>
             )}
@@ -115,15 +132,18 @@ export function LinkCard({ link, index, isFavorite = false, onToggleFavorite }: 
           </p>
         </div>
 
-        <div className={cn(
-          "p-2 rounded-full",
-          "bg-primary text-primary-foreground",
-          "opacity-0 group-hover:opacity-100",
-          "transform translate-x-2 group-hover:translate-x-0",
-          "transition-all duration-200"
-        )}>
-          <ExternalLink className="w-4 h-4" />
-        </div>
+
+      </div>
+
+      <div className={cn(
+        "absolute bottom-6 right-6 p-2 rounded-full",
+        "bg-primary text-primary-foreground",
+        "opacity-0 group-hover:opacity-100",
+        "transform translate-x-2 group-hover:translate-x-0",
+        "transition-all duration-200",
+        "shadow-sm pointer-events-none" // pointer-events-none to let click pass through to card
+      )}>
+        <ExternalLink className="w-4 h-4" />
       </div>
     </a>
   );
