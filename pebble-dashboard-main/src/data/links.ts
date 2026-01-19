@@ -543,6 +543,30 @@ export const links: LinkItem[] = [
     { id: "api-lastfm", name: "Last.fm API", category: "public-apis", subcategory: "media-api", tags: ["Music", "Scrobble"], url: "https://last.fm/api", desc: "Music data & scrobbling", pricing: "Free" },
     { id: "api-omdb", name: "OMDb", category: "public-apis", subcategory: "media-api", tags: ["Movies", "Data"], url: "https://omdbapi.com", desc: "Open movie database", pricing: "Free" },
 
+    // ===== AUTOMATION & EMAIL =====
+    // No-Code Automation
+    { id: "auto-n8n", name: "n8n", category: "automation", subcategory: "no-code", tags: ["Workflow", "Open Source"], url: "https://n8n.io", desc: "Open source workflow automation", pricing: "Freemium", isHot: true },
+    { id: "auto-make", name: "Make", category: "automation", subcategory: "no-code", tags: ["Automation", "Visual"], url: "https://make.com", desc: "Visual automation platform", pricing: "Freemium", isHot: true },
+    { id: "auto-zapier", name: "Zapier", category: "automation", subcategory: "no-code", tags: ["Automation", "Apps"], url: "https://zapier.com", desc: "Connect your apps", pricing: "Freemium" },
+    { id: "auto-ifttt", name: "IFTTT", category: "automation", subcategory: "no-code", tags: ["Automation", "Simple"], url: "https://ifttt.com", desc: "If this then that", pricing: "Freemium" },
+    { id: "auto-bardeen", name: "Bardeen", category: "automation", subcategory: "no-code", tags: ["Browser", "AI"], url: "https://bardeen.ai", desc: "AI browser automation", pricing: "Freemium" },
+
+    // Email & Forms
+    { id: "auto-brevo", name: "Brevo", category: "automation", subcategory: "developer", tags: ["Email", "API", "Marketing"], url: "https://brevo.com", desc: "Email API & marketing (300/day free)", pricing: "Freemium", isHot: true },
+    { id: "auto-web3forms", name: "Web3Forms", category: "automation", subcategory: "developer", tags: ["Forms", "API", "Simple"], url: "https://web3forms.com", desc: "Simple form API for static sites", pricing: "Freemium" },
+    { id: "auto-resend", name: "Resend", category: "automation", subcategory: "developer", tags: ["Email", "API", "Developer"], url: "https://resend.com", desc: "Email API for developers", pricing: "Freemium" },
+    { id: "auto-formspree", name: "Formspree", category: "automation", subcategory: "developer", tags: ["Forms", "Backend"], url: "https://formspree.io", desc: "Form backend for static sites", pricing: "Freemium" },
+
+    // Developer Automation
+    { id: "auto-temporal", name: "Temporal", category: "automation", subcategory: "developer", tags: ["Workflows", "Durable"], url: "https://temporal.io", desc: "Durable workflow engine", pricing: "Freemium" },
+    { id: "auto-airbyte", name: "Airbyte", category: "automation", subcategory: "developer", tags: ["Data Sync", "Open Source"], url: "https://airbyte.com", desc: "Data integration platform", pricing: "Free" },
+    { id: "auto-airflow", name: "Apache Airflow", category: "automation", subcategory: "developer", tags: ["Workflows", "Data"], url: "https://airflow.apache.org", desc: "Workflow orchestration", pricing: "Free" },
+
+    // AI Agents
+    { id: "auto-autogen", name: "AutoGen", category: "automation", subcategory: "agents", tags: ["Agents", "Microsoft"], url: "https://github.com/microsoft/autogen", desc: "Multi-agent framework", pricing: "Free" },
+    { id: "auto-crewai", name: "CrewAI", category: "automation", subcategory: "agents", tags: ["Agents", "Python"], url: "https://crewai.com", desc: "AI agent orchestration", pricing: "Free" },
+    { id: "auto-langchain", name: "LangChain", category: "automation", subcategory: "agents", tags: ["LLM", "Framework"], url: "https://langchain.com", desc: "LLM app framework", pricing: "Free", isHot: true },
+
 ];
 
 export const prompts: Prompt[] = [

@@ -227,7 +227,7 @@ const Index = () => {
 
                   {/* Dynamic Tag Filters - Limited to ~11 lines */}
                   {availableTags.length > 0 && (
-                    <div className="max-w-6xl mx-auto">
+                    <div key={activeCategory} className="max-w-6xl mx-auto">
                       <div className="flex flex-wrap gap-2 justify-center max-h-[264px] overflow-hidden">
                         {availableTags.map((tag: string) => (
                           <button
@@ -257,9 +257,9 @@ const Index = () => {
 
             {/* Bento Grid (Hide if on Prompts tab) */}
             {activeCategory !== "prompts" && (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              <div key={`grid-${activeCategory}-${tagFilter || 'all'}`} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                 {filteredLinks.map((link, index) => (
-                  <LinkCard key={link.id} link={link} index={index} />
+                  <LinkCard key={`${activeCategory}-${link.id}`} link={link} index={index} />
                 ))}
 
                 {filteredLinks.length === 0 && (
