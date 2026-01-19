@@ -43,54 +43,26 @@ export function SuggestWebsite({ className }: SuggestWebsiteProps) {
         setSubmitStatus("idle");
 
         try {
-            const response = await fetch("https://api.brevo.com/v3/smtp/email", {
+            // Using Web3Forms - free and works from browser without CORS issues
+            const response = await fetch("https://api.web3forms.com/submit", {
                 method: "POST",
                 headers: {
-                    "accept": "application/json",
-                    "api-key": import.meta.env.VITE_BREVO_API_KEY || "",
-                    "content-type": "application/json",
+                    "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    sender: {
-                        name: "Synapse Suggestion",
-                        email: formData.senderEmail || "noreply@synapse.app",
-                    },
-                    to: [
-                        {
-                            email: import.meta.env.VITE_ADMIN_EMAIL || "admin@example.com",
-                            name: "Synapse Admin",
-                        },
-                    ],
+                    access_key: import.meta.env.VITE_WEB3FORMS_KEY || "",
                     subject: `🔗 New Website Suggestion: ${formData.websiteName}`,
-                    htmlContent: `
-            <div style="font-family: system-ui, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-              <h2 style="color: #8b5cf6; border-bottom: 2px solid #8b5cf6; padding-bottom: 10px;">
-                New Website Suggestion
-              </h2>
-              
-              <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
-                <p style="margin: 0 0 10px 0;"><strong>📛 Website Name:</strong> ${formData.websiteName}</p>
-                <p style="margin: 0 0 10px 0;"><strong>🔗 URL:</strong> <a href="${formData.websiteUrl}">${formData.websiteUrl}</a></p>
-                <p style="margin: 0 0 10px 0;"><strong>📧 Suggested by:</strong> ${formData.senderEmail}</p>
-              </div>
-              
-              <div style="margin: 20px 0;">
-                <p><strong>📝 Description:</strong></p>
-                <p style="background: #fff; padding: 15px; border-left: 3px solid #8b5cf6; margin: 10px 0;">
-                  ${formData.description || "No description provided."}
-                </p>
-              </div>
-              
-              <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 20px 0;" />
-              <p style="color: #6b7280; font-size: 12px;">
-                Sent from Synapse Dashboard - Suggestion Form
-              </p>
-            </div>
-          `,
+                    from_name: "Synapse Suggestion",
+                    website_name: formData.websiteName,
+                    website_url: formData.websiteUrl,
+                    description: formData.description || "No description provided",
+                    email: formData.senderEmail,
                 }),
             });
 
-            if (response.ok) {
+            const result = await response.json();
+
+            if (result.success) {
                 setSubmitStatus("success");
                 setFormData({ websiteName: "", websiteUrl: "", description: "", senderEmail: "" });
                 setTimeout(() => {
@@ -98,7 +70,7 @@ export function SuggestWebsite({ className }: SuggestWebsiteProps) {
                     setSubmitStatus("idle");
                 }, 2000);
             } else {
-                throw new Error("Failed to send email");
+                throw new Error("Failed to send");
             }
         } catch (error) {
             console.error("Error sending suggestion:", error);
