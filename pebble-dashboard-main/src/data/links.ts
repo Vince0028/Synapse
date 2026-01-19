@@ -22,6 +22,7 @@ export interface LinkItem {
     pricing: "Free" | "Freemium" | "Paid" | "Free Trial" | "Daily Credits";
     studentOffer?: string;
     isHot?: boolean;
+    votes?: number;
 }
 
 export interface Category {
@@ -51,10 +52,11 @@ export const categories: Category[] = [
 
 export const links: LinkItem[] = [
     // ===== AI CHAT =====
-    { id: "ai-1", name: "ChatGPT", category: "ai-chat", subcategory: "general", tags: ["Chat", "Writing", "Coding"], url: "https://chatgpt.com", desc: "Conversational AI by OpenAI", pricing: "Freemium", isHot: true },
-    { id: "ai-2", name: "Claude", category: "ai-chat", subcategory: "general", tags: ["Chat", "Writing", "Research"], url: "https://claude.ai", desc: "AI assistant by Anthropic", pricing: "Freemium", isHot: true },
-    { id: "ai-3", name: "Google Gemini", category: "ai-chat", subcategory: "general", tags: ["Chat", "Search", "Multimodal"], url: "https://gemini.google.com", desc: "Google's multimodal AI", pricing: "Freemium", isHot: true },
-    { id: "ai-mistral", name: "Mistral Chat", category: "ai-chat", subcategory: "general", tags: ["Chat", "LLM"], url: "https://chat.mistral.ai", desc: "Open-weight model leader", pricing: "Freemium", isHot: true },
+    // AI Chat
+    { id: "ai-chatgpt", name: "ChatGPT", category: "ai-chat", subcategory: "general", tags: ["LLM", "Chat"], url: "https://chat.openai.com", desc: "OpenAI's AI chatbot", pricing: "Freemium", isHot: true },
+    { id: "ai-claude", name: "Claude", category: "ai-chat", subcategory: "general", tags: ["LLM", "Anthropic"], url: "https://claude.ai", desc: "Anthropic's helpful AI", pricing: "Freemium", isHot: true },
+    { id: "ai-gemini", name: "Gemini", category: "ai-chat", subcategory: "general", tags: ["LLM", "Google"], url: "https://gemini.google.com", desc: "Google's AI model", pricing: "Free" },
+    { id: "ai-perplexity", name: "Perplexity", category: "ai-chat", subcategory: "search", tags: ["Search", "AI"], url: "https://perplexity.ai", desc: "AI-powered search engine", pricing: "Freemium", isHot: true },
     { id: "ai-38", name: "Perplexity", category: "ai-chat", subcategory: "search", tags: ["Search", "Research", "Chat"], url: "https://perplexity.ai", desc: "AI search assistant", pricing: "Freemium", studentOffer: "Free Pro (GitHub Student Pack)", isHot: true },
     { id: "ai-grok", name: "Grok", category: "ai-chat", subcategory: "search", tags: ["Chat", "Real Time", "News"], url: "https://grok.x.ai", desc: "xAI's conversational AI", pricing: "Free Trial", isHot: true },
     { id: "ai-qwen", name: "Qwen", category: "ai-chat", subcategory: "reasoning", tags: ["Chat", "Reasoning", "Math"], url: "https://qwen.ai", desc: "Alibaba's powerful AI chat", pricing: "Free", isHot: true },

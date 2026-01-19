@@ -6,7 +6,9 @@ import { LinkCard } from "@/components/LinkCard";
 import { PromptVault } from "@/components/PromptVault";
 import { CategoryHeader } from "@/components/CategoryHeader";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { useFavorites } from "@/hooks/useFavorites";
 import { links } from "@/data/links";
+import { Star } from "lucide-react";
 
 const Index = () => {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -14,6 +16,8 @@ const Index = () => {
   const [pricingFilter, setPricingFilter] = useState<string | null>(null);
   const [studentFilter, setStudentFilter] = useState(false);
   const [tagFilter, setTagFilter] = useState<string | null>(null);
+  const [favoritesFilter, setFavoritesFilter] = useState(false);
+  const { favorites, toggleFavorite, isFavorite, getFavoriteCount } = useFavorites();
 
   const categoryLabels: Record<string, string> = {
     all: "All Resources",
@@ -133,7 +137,9 @@ const Index = () => {
 
       const matchesTag = tagFilter ? link.tags.includes(tagFilter) : true;
 
-      return matchesCategory && matchesSearch && matchesPricing && matchesStudent && matchesTag;
+      const matchesFavorites = favoritesFilter ? favorites.has(link.id) : true;
+
+      return matchesCategory && matchesSearch && matchesPricing && matchesStudent && matchesTag && matchesFavorites;
     });
 
     // Remove duplicates by name (keep first occurrence) - for Dashboard view
@@ -155,7 +161,7 @@ const Index = () => {
       if (!a.isHot && b.isHot) return 1;
       return 0;
     });
-  }, [activeCategory, searchQuery, pricingFilter, studentFilter, tagFilter]);
+  }, [activeCategory, searchQuery, pricingFilter, studentFilter, tagFilter, favoritesFilter, favorites]);
 
   // Reset tag filter when category changes
   const handleCategoryChange = (category: string) => {
@@ -222,6 +228,21 @@ const Index = () => {
                       >
                         Student Offers
                       </button>
+                      <button
+                        onClick={() => setFavoritesFilter(!favoritesFilter)}
+                        className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors border flex items-center gap-1.5 ${favoritesFilter
+                          ? "bg-yellow-100 text-yellow-700 border-yellow-200 dark:bg-yellow-900/30 dark:text-yellow-300 dark:border-yellow-800"
+                          : "bg-secondary hover:bg-secondary/80 text-secondary-foreground border-transparent"
+                          }`}
+                      >
+                        <Star className={`w-3.5 h-3.5 ${favoritesFilter ? "fill-current" : ""}`} />
+                        Favorites
+                        {getFavoriteCount() > 0 && (
+                          <span className="ml-1 px-1.5 py-0.5 text-xs rounded-full bg-yellow-500 text-white">
+                            {getFavoriteCount()}
+                          </span>
+                        )}
+                      </button>
                     </div>
                   </div>
 
@@ -259,7 +280,13 @@ const Index = () => {
             {activeCategory !== "prompts" && (
               <div key={`grid-${activeCategory}-${tagFilter || 'all'}`} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                 {filteredLinks.map((link, index) => (
-                  <LinkCard key={`${activeCategory}-${link.id}`} link={link} index={index} />
+                  <LinkCard
+                    key={`${activeCategory}-${link.id}`}
+                    link={link}
+                    index={index}
+                    isFavorite={isFavorite(link.id)}
+                    onToggleFavorite={toggleFavorite}
+                  />
                 ))}
 
                 {filteredLinks.length === 0 && (

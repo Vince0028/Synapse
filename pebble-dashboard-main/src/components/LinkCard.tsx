@@ -1,4 +1,4 @@
-import { ExternalLink, GraduationCap } from "lucide-react";
+import { ExternalLink, GraduationCap, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { LinkItem } from "@/data/links";
 import {
@@ -11,16 +11,24 @@ import {
 interface LinkCardProps {
   link: LinkItem;
   index: number;
+  isFavorite?: boolean;
+  onToggleFavorite?: (id: string) => void;
 }
 
-export function LinkCard({ link, index }: LinkCardProps) {
+export function LinkCard({ link, index, isFavorite = false, onToggleFavorite }: LinkCardProps) {
+  const handleStarClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    onToggleFavorite?.(link.id);
+  };
+
   return (
     <a
       href={link.url}
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        "group block p-6 rounded-card",
+        "group block p-6 rounded-card relative",
         "bg-card border border-border",
         "shadow-card hover:shadow-hover",
         "transition-all duration-300",
@@ -29,6 +37,25 @@ export function LinkCard({ link, index }: LinkCardProps) {
       )}
       style={{ animationDelay: `${index * 50}ms` }}
     >
+      {/* Star Button */}
+      <button
+        onClick={handleStarClick}
+        className={cn(
+          "absolute top-3 right-3 flex items-center gap-1 p-1.5 rounded-full transition-all duration-200 z-10",
+          isFavorite
+            ? "text-yellow-500 bg-yellow-100 dark:bg-yellow-900/30"
+            : "text-muted-foreground/40 hover:text-yellow-500 hover:bg-yellow-100/50 dark:hover:bg-yellow-900/20",
+          // Show button always
+          "opacity-100"
+        )}
+        title={isFavorite ? "Remove from favorites" : "Add to favorites"}
+      >
+        <Star className={cn("w-3.5 h-3.5", isFavorite && "fill-current")} />
+        <span className="text-xs font-semibold">
+          {(link.votes || 0) + (isFavorite ? 1 : 0)}
+        </span>
+      </button>
+
       <div className="flex items-start justify-between gap-4">
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-3 mb-2">
