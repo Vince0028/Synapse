@@ -23,7 +23,9 @@ import {
     Film,
     Globe,
     FileText,
-    Workflow
+    Workflow,
+    Cloud,
+    Box
 } from "lucide-react"
 import {
     Sidebar,
@@ -62,61 +64,114 @@ const sidebarStructure = [
     },
     {
         type: "group",
-        id: "ai",
-        label: "AI Powerhouse",
-        icon: Sparkles,
+        id: "ai-chat",
+        label: "AI Chat",
+        icon: Bot,
         items: [
-            { id: "chatbot", label: "Chat Bots", icon: Bot },
-            { id: "humanizer", label: "Humanizers", icon: UserCheck },
-            { id: "detector", label: "AI Detectors", icon: UserCheck },
-            { id: "coding-ai", label: "Coding Assistants", icon: Terminal },
-            { id: "ai-api", label: "AI APIs & Cloud", icon: Cpu },
-            { id: "generator", label: "Generators", icon: Sparkles },
+            { id: "general", label: "General Chat", icon: Bot },
+            { id: "search", label: "Search Chat", icon: Globe },
+            { id: "reasoning", label: "Reasoning Chat", icon: Sparkles },
         ]
     },
     {
         type: "group",
-        id: "dev",
-        label: "Dev Ecosystem",
-        icon: Code2,
-        items: [
-            { id: "hosting", label: "Hosting & Cloud", icon: Server },
-            { id: "database", label: "Databases", icon: Database },
-            { id: "ide", label: "IDEs & Editors", icon: Terminal },
-            { id: "devtools", label: "Tools & Utilities", icon: Wrench },
-            { id: "public-apis", label: "Public APIs", icon: Globe },
-            { id: "automation", label: "Automation", icon: Workflow },
-        ]
-    },
-    {
-        type: "group",
-        id: "student",
-        label: "Student Center",
-        icon: GraduationCap,
-        items: [
-            { id: "study", label: "Study Tools", icon: BookOpen },
-            { id: "research", label: "Research", icon: BookOpen },
-            { id: "writing", label: "Writing Support", icon: PenTool },
-        ]
-    },
-    {
-        type: "group",
-        id: "creative",
-        label: "Creative Studio",
+        id: "create-ai",
+        label: "Create with AI",
         icon: Palette,
         items: [
-            { id: "design", label: "Design, UI & 3D", icon: Palette },
-            { id: "media", label: "Media & Video", icon: Video },
+            { id: "image", label: "Image Maker", icon: Palette },
+            { id: "video", label: "Video Maker", icon: Video },
+            { id: "music", label: "Music Maker", icon: Film },
+            { id: "voice", label: "Voice Maker", icon: Sparkles },
+            { id: "app-builder", label: "App Builder", icon: LayoutGrid },
         ]
     },
     {
         type: "group",
-        id: "entertainment",
-        label: "Entertainment",
-        icon: Tv,
+        id: "code-build",
+        label: "Code & Build",
+        icon: Code2,
         items: [
-            { id: "streaming", label: "Streaming", icon: Film },
-            { id: "news", label: "Tech News", icon: Newspaper },
+            { id: "code-helper", label: "Code Helper", icon: Bot },
+            { id: "code-editor", label: "Code Editor", icon: Terminal },
+            { id: "testing", label: "Testing Tools", icon: Wrench },
+        ]
+    },
+    {
+        type: "group",
+        id: "deploy",
+        label: "Deploy & Store",
+        icon: Cloud,
+        items: [
+            { id: "hosting", label: "Website Hosting", icon: Globe },
+            { id: "cloud", label: "Cloud Servers", icon: Server },
+            { id: "database", label: "Databases", icon: Database },
+            { id: "auth", label: "Login & Auth", icon: UserCheck },
+        ]
+    },
+    {
+        type: "group",
+        id: "automation",
+        label: "Automate Tasks",
+        icon: Workflow,
+        items: [
+            { id: "no-code", label: "No Code Automation", icon: Sparkles },
+            { id: "developer", label: "Developer Automation", icon: Code2 },
+            { id: "agents", label: "AI Agents", icon: Bot },
+        ]
+    },
+    {
+        type: "group",
+        id: "learn",
+        label: "Learn & Study",
+        icon: GraduationCap,
+        items: [
+            { id: "practice", label: "Coding Practice", icon: Code2 },
+            { id: "courses", label: "Courses", icon: Video },
+            { id: "docs", label: "Docs & Guides", icon: BookOpen },
+            { id: "stem", label: "Math & STEM", icon: Sparkles },
+            { id: "research", label: "Research Papers", icon: BookOpen },
+            { id: "news", label: "News & Podcasts", icon: Newspaper },
+        ]
+    },
+    {
+        type: "group",
+        id: "writing",
+        label: "Write Better",
+        icon: PenTool,
+        items: [
+            { id: "grammar", label: "Grammar Check", icon: UserCheck },
+            { id: "essay", label: "Essay Help", icon: PenTool },
+            { id: "rewrite", label: "Rewriting", icon: Sparkles },
+            { id: "citation", label: "Citations", icon: BookOpen },
+        ]
+    },
+    {
+        type: "group",
+        id: "design",
+        label: "Design & Media",
+        icon: Palette,
+        items: [
+            { id: "ui", label: "UI Design", icon: LayoutGrid },
+            { id: "graphics", label: "Graphics", icon: Palette },
+            { id: "3d", label: "3D Design", icon: Box },
+            { id: "fonts", label: "Icons & Fonts", icon: PenTool },
+            { id: "media", label: "Video Assets", icon: Video },
+        ]
+    },
+    {
+        type: "group",
+        id: "public-apis",
+        label: "Public APIs",
+        icon: Globe,
+        items: [
+            { id: "test", label: "Test APIs", icon: Terminal },
+            { id: "fun", label: "Fun APIs", icon: Sparkles },
+            { id: "data", label: "Data APIs", icon: Database },
+            { id: "weather", label: "Weather & Maps", icon: Globe },
+            { id: "finance", label: "Finance", icon: LayoutGrid },
+            { id: "security", label: "Security", icon: UserCheck },
+            { id: "media-api", label: "Media APIs", icon: Video },
         ]
     }
 ];

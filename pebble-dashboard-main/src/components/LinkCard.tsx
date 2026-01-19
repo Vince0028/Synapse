@@ -65,14 +65,16 @@ export function LinkCard({ link, index }: LinkCardProps) {
               </span>
             </div>
           </div>
-          <div className="mb-2">
-            <span className={cn(
-              "px-2.5 py-0.5 rounded-button",
-              "bg-secondary text-secondary-foreground",
-              "text-xs font-medium"
-            )}>
-              {link.tag}
-            </span>
+          <div className="flex flex-wrap gap-2 mb-2">
+            {link.tags.slice(0, 3).map((tag, i) => (
+              <span key={i} className={cn(
+                "px-2.5 py-0.5 rounded-button",
+                "bg-secondary text-secondary-foreground",
+                "text-xs font-medium"
+              )}>
+                {tag}
+              </span>
+            ))}
           </div>
           <p className="text-sm text-muted-foreground line-clamp-2">
             {link.desc}

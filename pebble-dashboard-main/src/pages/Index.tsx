@@ -18,41 +18,94 @@ const Index = () => {
   const categoryLabels: Record<string, string> = {
     all: "All Resources",
     prompts: "Prompt Vault",
-    ai: "AI Powerhouse",
-    chatbot: "Chat Bots",
-    humanizer: "Humanizers",
-    detector: "AI Detectors",
-    "coding-ai": "Coding Assistants",
-    "ai-api": "AI APIs & Cloud",
-    generator: "Generators",
-    dev: "Dev Ecosystem",
-    hosting: "Hosting & Cloud",
+    // AI Chat
+    "ai-chat": "AI Chat",
+    general: "General Chat",
+    search: "Search Chat",
+    reasoning: "Reasoning Chat",
+    // Create with AI
+    "create-ai": "Create with AI",
+    image: "Image Maker",
+    video: "Video Maker",
+    music: "Music Maker",
+    voice: "Voice Maker",
+    "app-builder": "App Builder",
+    // Code & Build
+    "code-build": "Code & Build",
+    "code-helper": "Code Helper",
+    "code-editor": "Code Editor",
+    testing: "Testing Tools",
+    // Deploy & Store
+    deploy: "Deploy & Store",
+    hosting: "Website Hosting",
+    cloud: "Cloud Servers",
     database: "Databases",
-    ide: "IDEs & Editors",
-    devtools: "Tools & Utilities",
+    auth: "Login & Auth",
+    // Automation
+    automation: "Automate Tasks",
+    "no-code": "No Code Automation",
+    developer: "Developer Automation",
+    agents: "AI Agents",
+    // Learn & Study
+    learn: "Learn & Study",
+    practice: "Coding Practice",
+    courses: "Courses",
+    docs: "Docs & Guides",
+    stem: "Math & STEM",
+    research: "Research Papers",
+    news: "News & Podcasts",
+    // Write Better
+    writing: "Write Better",
+    grammar: "Grammar Check",
+    essay: "Essay Help",
+    rewrite: "Rewriting",
+    citation: "Citations",
+    // Design & Media
+    design: "Design & Media",
+    ui: "UI Design",
+    graphics: "Graphics",
+    "3d": "3D Design",
+    fonts: "Icons & Fonts",
+    media: "Video Assets",
+    // Public APIs
     "public-apis": "Public APIs",
-    automation: "Automation",
-    student: "Student Center",
-    study: "Study Tools",
-    research: "Research",
-    writing: "Writing Support",
-    creative: "Creative Studio",
-    design: "Design, UI & 3D",
-    media: "Media & Video",
-    entertainment: "Entertainment",
-    streaming: "Streaming",
-    news: "Tech News"
+    test: "Test APIs",
+    fun: "Fun APIs",
+    data: "Data APIs",
+    weather: "Weather & Maps",
+    finance: "Finance",
+    security: "Security",
+    "media-api": "Media APIs"
   };
 
-  // Get available tags for current category
+
+  // Get available tags for current category - limit to prevent UI clutter
   const availableTags = useMemo(() => {
     if (activeCategory === "prompts") return [];
+
+    // Get links for current view
     const categoryLinks = links.filter((link) => {
       if (activeCategory === "all") return true;
       return link.subcategory === activeCategory || link.category === activeCategory;
     });
-    const tags = [...new Set(categoryLinks.map((link) => link.tag))];
-    return tags.sort();
+
+    // Count tag frequency
+    const tagCounts: Record<string, number> = {};
+    categoryLinks.forEach((link) => {
+      link.tags.forEach((tag) => {
+        tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+      });
+    });
+
+    // Sort by frequency and take top tags
+    const sortedTags = Object.entries(tagCounts)
+      .sort((a, b) => b[1] - a[1])
+      .map(([tag]) => tag);
+
+    // On "all" view, show only top 12 most common tags
+    // On subcategory view, show all tags (usually much fewer)
+    const maxTags = activeCategory === "all" ? 12 : 20;
+    return sortedTags.slice(0, maxTags);
   }, [activeCategory]);
 
   const filteredLinks = useMemo(() => {
@@ -72,7 +125,7 @@ const Index = () => {
         searchQuery === "" ||
         link.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         link.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        link.tag.toLowerCase().includes(searchQuery.toLowerCase());
+        link.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
 
       const matchesPricing = pricingFilter
         ? pricingFilter === "Free"
@@ -84,7 +137,7 @@ const Index = () => {
 
       const matchesStudent = studentFilter ? !!link.studentOffer : true;
 
-      const matchesTag = tagFilter ? link.tag === tagFilter : true;
+      const matchesTag = tagFilter ? link.tags.includes(tagFilter) : true;
 
       return matchesCategory && matchesSearch && matchesPricing && matchesStudent && matchesTag;
     });
