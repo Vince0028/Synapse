@@ -79,17 +79,16 @@ const Index = () => {
   };
 
 
-  // Get available tags for current category - limit to prevent UI clutter
+  // Get available tags for current category - sorted by frequency
   const availableTags = useMemo(() => {
     if (activeCategory === "prompts") return [];
 
-    // Get links for current view
     const categoryLinks = links.filter((link) => {
       if (activeCategory === "all") return true;
       return link.subcategory === activeCategory || link.category === activeCategory;
     });
 
-    // Count tag frequency
+    // Count tag frequency for sorting
     const tagCounts: Record<string, number> = {};
     categoryLinks.forEach((link) => {
       link.tags.forEach((tag) => {
@@ -97,15 +96,10 @@ const Index = () => {
       });
     });
 
-    // Sort by frequency and take top tags
-    const sortedTags = Object.entries(tagCounts)
+    // Sort by frequency (most used first) - all tags shown with horizontal scroll
+    return Object.entries(tagCounts)
       .sort((a, b) => b[1] - a[1])
       .map(([tag]) => tag);
-
-    // On "all" view, show only top 12 most common tags
-    // On subcategory view, show all tags (usually much fewer)
-    const maxTags = activeCategory === "all" ? 12 : 20;
-    return sortedTags.slice(0, maxTags);
   }, [activeCategory]);
 
   const filteredLinks = useMemo(() => {
@@ -231,10 +225,10 @@ const Index = () => {
                     </div>
                   </div>
 
-                  {/* Dynamic Tag Filters - Wider Container */}
+                  {/* Dynamic Tag Filters - Limited to ~11 lines */}
                   {availableTags.length > 0 && (
                     <div className="max-w-6xl mx-auto">
-                      <div className="flex flex-wrap gap-2 justify-center">
+                      <div className="flex flex-wrap gap-2 justify-center max-h-[264px] overflow-hidden">
                         {availableTags.map((tag: string) => (
                           <button
                             key={tag}
