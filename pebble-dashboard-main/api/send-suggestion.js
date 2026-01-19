@@ -28,11 +28,11 @@ export default async function handler(req, res) {
             body: JSON.stringify({
                 sender: {
                     name: 'Synapse Suggestion',
-                    email: 'noreply@synapse.dev',
+                    email: 'alobinvince@gmail.com', // Your verified Brevo sender
                 },
                 to: [
                     {
-                        email: process.env.ADMIN_EMAIL,
+                        email: 'alobinvince@gmail.com', // Send to yourself
                         name: 'Synapse Admin',
                     },
                 ],
