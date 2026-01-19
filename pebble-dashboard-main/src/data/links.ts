@@ -60,6 +60,7 @@ export const links: LinkItem[] = [
     { id: "ai-cursor", name: "Cursor", category: "ai", subcategory: "coding-ai", tag: "IDE", url: "https://cursor.sh", desc: "AI-first code editor", pricing: "Freemium", isHot: true },
     { id: "ai-tabnine", name: "Tabnine", category: "ai", subcategory: "coding-ai", tag: "Coding", url: "https://tabnine.com", desc: "AI code assistant", pricing: "Freemium" },
     { id: "ai-windsurf", name: "Windsurf", category: "ai", subcategory: "coding-ai", tag: "IDE", url: "https://codeium.com/windsurf", desc: "Agentic IDE by Codeium", pricing: "Freemium", isHot: true },
+    { id: "ai-antigravity", name: "Antigravity", category: "ai", subcategory: "coding-ai", tag: "Agentic", url: "https://deepmind.google", desc: "Advanced Agentic Coding Assistant", pricing: "Freemium", isHot: true },
 
     // AI APIs & Cloud
     { id: "dev-6", name: "GroqCloud", category: "ai", subcategory: "ai-api", tag: "API", url: "https://console.groq.com", desc: "Fast AI inference API", pricing: "Freemium", studentOffer: "Free Tier Credits" },
@@ -75,6 +76,7 @@ export const links: LinkItem[] = [
     { id: "ai-5", name: "v0.dev", category: "ai", subcategory: "generator", tag: "App Gen", url: "https://v0.dev", desc: "Generate UI with AI", pricing: "Freemium", isHot: true },
     { id: "ai-lovable", name: "Lovable", category: "ai", subcategory: "generator", tag: "App Gen", url: "https://lovable.dev", desc: "Full-stack app generator", pricing: "Freemium", isHot: true },
     { id: "ai-replit-gen", name: "Replit", category: "ai", subcategory: "generator", tag: "App Gen", url: "https://replit.com", desc: "Build apps with Replit Agent", pricing: "Freemium", isHot: true },
+    { id: "ai-base44", name: "Base44", category: "ai", subcategory: "generator", tag: "App Gen", url: "https://base44.com", desc: "Full-stack AI app generator", pricing: "Freemium", isHot: true },
     { id: "ai-google-studio", name: "Google AI Studio", category: "ai", subcategory: "generator", tag: "Multimodal", url: "https://aistudio.google.com", desc: "Build with Gemini models", pricing: "Free" },
     { id: "tts-53", name: "ElevenLabs", category: "ai", subcategory: "generator", tag: "Voice", url: "https://elevenlabs.io", desc: "AI voice generator", pricing: "Freemium" },
     { id: "tts-54", name: "Resemble AI", category: "ai", subcategory: "generator", tag: "Voice", url: "https://resemble.ai", desc: "AI voice cloning", pricing: "Free Trial" },

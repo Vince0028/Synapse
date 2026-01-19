@@ -127,6 +127,13 @@ interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {
 }
 
 export function AppSidebar({ activeCategory, onCategoryChange, ...props }: AppSidebarProps) {
+    const [openGroup, setOpenGroup] = React.useState<string | null>(() => {
+        const found = sidebarStructure.find(group =>
+            group.type === "group" && group.items?.some(item => item.id === activeCategory)
+        );
+        return found?.id || null;
+    });
+
     return (
         <Sidebar {...props}>
             <SidebarHeader>
@@ -164,8 +171,21 @@ export function AppSidebar({ activeCategory, onCategoryChange, ...props }: AppSi
                         }
 
                         const GroupIcon = group.icon;
+                        const isGroupOpen = openGroup === group.id;
+
                         return (
-                            <Collapsible key={group.id} className="group/collapsible">
+                            <Collapsible
+                                key={group.id}
+                                open={isGroupOpen}
+                                onOpenChange={(open) => {
+                                    if (open) {
+                                        setOpenGroup(group.id!);
+                                    } else {
+                                        setOpenGroup(null);
+                                    }
+                                }}
+                                className="group/collapsible"
+                            >
                                 <SidebarMenuItem>
                                     <CollapsibleTrigger asChild>
                                         <SidebarMenuButton tooltip={group.label}>
@@ -174,7 +194,7 @@ export function AppSidebar({ activeCategory, onCategoryChange, ...props }: AppSi
                                             <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                                         </SidebarMenuButton>
                                     </CollapsibleTrigger>
-                                    <CollapsibleContent>
+                                    <CollapsibleContent className="overflow-hidden data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down">
                                         <SidebarMenuSub>
                                             {group.items?.map((item) => {
                                                 const isActive = activeCategory === item.id;
