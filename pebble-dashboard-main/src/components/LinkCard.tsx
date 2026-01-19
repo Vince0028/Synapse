@@ -2,6 +2,7 @@ import * as React from "react";
 import { ExternalLink, GraduationCap, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { LinkItem } from "@/data/links";
+import { useLinkVotes } from "@/hooks/useLinkVotes";
 import {
   Tooltip,
   TooltipContent,
@@ -17,33 +18,15 @@ interface LinkCardProps {
 }
 
 export function LinkCard({ link, index, isFavorite = false, onToggleFavorite }: LinkCardProps) {
-  const [votes, setVotes] = React.useState<number>(0);
-  const [loading, setLoading] = React.useState(true);
-
-  // Fetch live vote count on mount
-  React.useEffect(() => {
-    fetch(`https://api.counterapi.dev/v1/synapse-dashboard/${link.id}/`)
-      .then(res => res.json())
-      .then(data => {
-        if (data.count !== undefined) setVotes(data.count);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
-  }, [link.id]);
+  const { votes, updateVote } = useLinkVotes(link.id);
 
   const handleStarClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
 
-    // Optimistic update (update UI immediately)
     const isAdding = !isFavorite;
-    setVotes(prev => isAdding ? prev + 1 : Math.max(0, prev - 1));
     onToggleFavorite?.(link.id);
-
-    // Send update to cloud
-    const endpoint = isAdding ? 'up' : 'down';
-    fetch(`https://api.counterapi.dev/v1/synapse-dashboard/${link.id}/${endpoint}`)
-      .catch(err => console.error('Failed to sync vote:', err));
+    updateVote(isAdding);
   };
 
   return (
@@ -76,7 +59,7 @@ export function LinkCard({ link, index, isFavorite = false, onToggleFavorite }: 
       >
         <Star className={cn("w-3.5 h-3.5", isFavorite && "fill-current")} />
         <span className="text-xs font-semibold min-w-[12px] text-center">
-          {loading ? "..." : votes}
+          {votes}
         </span>
       </button>
 
