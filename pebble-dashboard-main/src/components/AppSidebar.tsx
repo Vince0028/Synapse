@@ -47,6 +47,7 @@ import {
     CollapsibleContent,
     CollapsibleTrigger,
 } from "@/components/ui/collapsible"
+import { SuggestWebsite } from "@/components/SuggestWebsite"
 
 // Define the detailed sidebar structure
 const sidebarStructure = [
@@ -275,6 +276,12 @@ export function AppSidebar({ activeCategory, onCategoryChange, ...props }: AppSi
                     })}
                 </SidebarMenu>
             </SidebarContent>
+
+            {/* Suggest Website Button at Bottom */}
+            <div className="p-4 border-t">
+                <SuggestWebsite />
+            </div>
+
             <SidebarRail />
         </Sidebar>
     )
