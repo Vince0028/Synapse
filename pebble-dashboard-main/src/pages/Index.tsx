@@ -300,7 +300,7 @@ const Index = () => {
             )}
 
             {/* Prompt Vault Section - Show on Dashboard ('all') OR Prompt Tab ('prompts') */}
-            {(activeCategory === "all" || activeCategory === "prompts") && (
+            {(activeCategory === "prompts" || (activeCategory === "all" && !favoritesFilter)) && (
               <section className={activeCategory === "all" ? "max-w-full pt-8 border-t" : "max-w-full"}>
                 {activeCategory === "all" && (
                   <h2 className="text-2xl font-bold text-foreground mb-6">

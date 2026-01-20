@@ -215,6 +215,7 @@ export function AppSidebar({ activeCategory, onCategoryChange, ...props }: AppSi
                                         isActive={isActive}
                                         onClick={() => {
                                             onCategoryChange(group.id!);
+                                            setOpenGroup(null);
                                             window.scrollTo({ top: 0, behavior: "smooth" });
                                         }}
                                         size="lg"
