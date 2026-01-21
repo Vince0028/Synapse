@@ -49,7 +49,7 @@ import {
 } from "@/components/ui/collapsible"
 import { SuggestWebsite } from "@/components/SuggestWebsite"
 
-// Define the detailed sidebar structure
+
 const sidebarStructure = [
     {
         type: "single",
