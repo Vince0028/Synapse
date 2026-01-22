@@ -25,11 +25,11 @@ function PromptCard({ prompt }: { prompt: typeof prompts[0] }) {
   return (
     <div className={cn(
       "relative rounded-sm p-6",
-      "bg-card border border-border", // Theme-aware background
+      "bg-card border border-border",
       "shadow-card",
       "font-mono flex flex-col h-[400px]",
       "transition-all duration-300 hover:shadow-hover hover:-translate-y-1",
-      "before:content-[''] before:absolute before:top-0 before:bottom-0 before:left-8 before:w-px before:bg-primary/5" // Subtle themed margin line
+      "before:content-[''] before:absolute before:top-0 before:bottom-0 before:left-8 before:w-px before:bg-primary/5"
     )}>
       {/* Decorative tape effect */}
       <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-32 h-8 bg-muted/80 rotate-1 shadow-sm backdrop-blur-[1px]" />
