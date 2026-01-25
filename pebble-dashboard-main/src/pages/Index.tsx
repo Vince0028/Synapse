@@ -6,6 +6,7 @@ import { LinkCard } from "@/components/LinkCard";
 import { PromptVault } from "@/components/PromptVault";
 import { CategoryHeader } from "@/components/CategoryHeader";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { HeaderPet } from "@/components/HeaderPet";
 import { useFavorites } from "@/hooks/useFavorites";
 import { links } from "@/data/links";
 import { Star } from "lucide-react";
@@ -174,7 +175,8 @@ const Index = () => {
       <AppSidebar activeCategory={activeCategory} onCategoryChange={handleCategoryChange} />
       <SidebarInset>
         <div className="min-h-screen transition-colors duration-300">
-          <header className="sticky top-0 z-30 flex items-center justify-between px-6 py-4 bg-background/60 backdrop-blur-xl border-b border-border/50">
+          <header className="sticky top-0 z-30 flex items-center justify-between px-6 py-4 bg-background/60 backdrop-blur-xl border-b border-border/50 relative overflow-hidden">
+            <HeaderPet />
             <div className="flex items-center gap-3">
               <SidebarTrigger />
               <div className="flex flex-col items-start">
