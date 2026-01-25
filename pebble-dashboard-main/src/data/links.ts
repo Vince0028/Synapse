@@ -559,6 +559,105 @@ export const links: LinkItem[] = [
     { id: "auto-dagster", name: "Dagster", category: "automation", subcategory: "developer", tags: ["Data", "Pipelines"], url: "https://dagster.io", desc: "Data orchestration", pricing: "Freemium" },
     { id: "auto-superagi", name: "SuperAGI", category: "automation", subcategory: "agents", tags: ["Agents", "Open Source"], url: "https://superagi.com", desc: "Autonomous AI agents", pricing: "Free" },
 
+    // ===== MCP (Model Context Protocol) SERVERS =====
+    // Main Collections - Start here to find MCP servers!
+    { id: "mcp-main", name: "Official MCP Servers", category: "public-apis", subcategory: "mcp", tags: ["MCP", "AI", "Official"], url: "https://github.com/modelcontextprotocol/servers", desc: "Official collection: Filesystem, GitHub, Postgres, Slack, Memory & more", pricing: "Free", isHot: true },
+    { id: "mcp-awesome", name: "Awesome MCP Servers", category: "public-apis", subcategory: "mcp", tags: ["MCP", "List", "Community"], url: "https://github.com/punkpeye/awesome-mcp-servers", desc: "Curated community list of 100+ MCP servers", pricing: "Free", isHot: true },
+    
+    // Individual MCP Servers (Each is its own GitHub repo)
+    { id: "mcp-supabase", name: "MCP Supabase", category: "public-apis", subcategory: "mcp", tags: ["MCP", "Supabase", "Database"], url: "https://github.com/supabase-community/supabase-mcp", desc: "Supabase database & auth for AI", pricing: "Free", isHot: true },
+    { id: "mcp-docker", name: "MCP Docker", category: "public-apis", subcategory: "mcp", tags: ["MCP", "Docker", "Containers"], url: "https://github.com/ckreiling/mcp-server-docker", desc: "Docker container management for AI", pricing: "Free" },
+    { id: "mcp-playwright", name: "MCP Playwright", category: "public-apis", subcategory: "mcp", tags: ["MCP", "Testing", "Browser"], url: "https://github.com/executeautomation/mcp-playwright", desc: "Playwright browser testing for AI", pricing: "Free" },
+    { id: "mcp-notion", name: "MCP Notion", category: "public-apis", subcategory: "mcp", tags: ["MCP", "Notion", "Docs"], url: "https://github.com/suekou/mcp-notion-server", desc: "Notion workspace for AI", pricing: "Free" },
+    { id: "mcp-linear", name: "MCP Linear", category: "public-apis", subcategory: "mcp", tags: ["MCP", "Linear", "Issues"], url: "https://github.com/tacticlaunch/mcp-linear", desc: "Linear issue tracking for AI", pricing: "Free" },
+    { id: "mcp-atlassian", name: "MCP Atlassian", category: "public-apis", subcategory: "mcp", tags: ["MCP", "Jira", "Confluence"], url: "https://github.com/sooperset/mcp-atlassian", desc: "Jira & Confluence for AI", pricing: "Free" },
+    { id: "mcp-discord", name: "MCP Discord", category: "public-apis", subcategory: "mcp", tags: ["MCP", "Discord", "Chat"], url: "https://github.com/v-3/discordmcp", desc: "Discord integration for AI", pricing: "Free" },
+    { id: "mcp-todoist", name: "MCP Todoist", category: "public-apis", subcategory: "mcp", tags: ["MCP", "Todoist", "Tasks"], url: "https://github.com/abhiz123/todoist-mcp-server", desc: "Todoist tasks for AI", pricing: "Free" },
+    { id: "mcp-stripe", name: "MCP Stripe", category: "public-apis", subcategory: "mcp", tags: ["MCP", "Stripe", "Payments"], url: "https://github.com/stripe/ai", desc: "Stripe payments for AI agents", pricing: "Free" },
+    { id: "mcp-aws", name: "MCP AWS", category: "public-apis", subcategory: "mcp", tags: ["MCP", "AWS", "Cloud"], url: "https://github.com/awslabs/mcp", desc: "AWS services for AI agents", pricing: "Free" },
+    { id: "mcp-cloudflare", name: "MCP Cloudflare", category: "public-apis", subcategory: "mcp", tags: ["MCP", "Cloudflare"], url: "https://github.com/cloudflare/mcp-server-cloudflare", desc: "Cloudflare Workers for AI", pricing: "Free" },
+    { id: "mcp-qdrant", name: "MCP Qdrant", category: "public-apis", subcategory: "mcp", tags: ["MCP", "Vector", "Database"], url: "https://github.com/qdrant/mcp-server-qdrant", desc: "Qdrant vector database for AI", pricing: "Free" },
+    { id: "mcp-exa", name: "MCP Exa Search", category: "public-apis", subcategory: "mcp", tags: ["MCP", "Search", "AI"], url: "https://github.com/exa-labs/exa-mcp-server", desc: "Exa AI search for agents", pricing: "Free" },
+    { id: "mcp-browserbase", name: "MCP Browserbase", category: "public-apis", subcategory: "mcp", tags: ["MCP", "Browser", "Scraping"], url: "https://github.com/browserbase/mcp-server-browserbase", desc: "Cloud browser for AI agents", pricing: "Free" },
+    { id: "mcp-snowflake", name: "MCP Snowflake", category: "public-apis", subcategory: "mcp", tags: ["MCP", "Snowflake", "Data"], url: "https://github.com/Snowflake-Labs/mcp", desc: "Snowflake data warehouse for AI", pricing: "Free" },
+
+    // ===== MORE USEFUL FREE APIs FOR STUDENTS =====
+    // Communication & Notifications
+    { id: "api-twilio", name: "Twilio", category: "public-apis", subcategory: "test", tags: ["SMS", "Voice", "API"], url: "https://twilio.com", desc: "SMS & voice API", pricing: "Free Trial", isHot: true },
+    { id: "api-sendgrid", name: "SendGrid", category: "public-apis", subcategory: "test", tags: ["Email", "API"], url: "https://sendgrid.com", desc: "Email delivery API", pricing: "Freemium" },
+    { id: "api-mailgun", name: "Mailgun", category: "public-apis", subcategory: "test", tags: ["Email", "API"], url: "https://mailgun.com", desc: "Email API service", pricing: "Freemium" },
+    { id: "api-pusher", name: "Pusher", category: "public-apis", subcategory: "test", tags: ["Real-time", "WebSocket"], url: "https://pusher.com", desc: "Real-time messaging", pricing: "Freemium" },
+    { id: "api-onesignal", name: "OneSignal", category: "public-apis", subcategory: "test", tags: ["Push", "Notifications"], url: "https://onesignal.com", desc: "Push notifications", pricing: "Freemium" },
+
+    // Authentication & Identity
+    { id: "api-authjs", name: "Auth.js", category: "public-apis", subcategory: "test", tags: ["Auth", "Open Source"], url: "https://authjs.dev", desc: "Auth for Next.js & more", pricing: "Free", isHot: true },
+    { id: "api-lucia", name: "Lucia Auth", category: "public-apis", subcategory: "test", tags: ["Auth", "Simple"], url: "https://lucia-auth.com", desc: "Simple session auth", pricing: "Free" },
+    { id: "api-passportjs", name: "Passport.js", category: "public-apis", subcategory: "test", tags: ["Auth", "Node.js"], url: "https://passportjs.org", desc: "Node.js authentication", pricing: "Free" },
+    { id: "api-magic", name: "Magic", category: "public-apis", subcategory: "test", tags: ["Auth", "Passwordless"], url: "https://magic.link", desc: "Passwordless auth SDK", pricing: "Freemium" },
+
+    // Storage & Files
+    { id: "api-cloudinary", name: "Cloudinary", category: "public-apis", subcategory: "test", tags: ["Media", "Storage"], url: "https://cloudinary.com", desc: "Media management API", pricing: "Freemium", isHot: true },
+    { id: "api-uploadthing", name: "UploadThing", category: "public-apis", subcategory: "test", tags: ["Upload", "Files"], url: "https://uploadthing.com", desc: "File uploads for devs", pricing: "Freemium" },
+    { id: "api-imagekit", name: "ImageKit", category: "public-apis", subcategory: "test", tags: ["Images", "CDN"], url: "https://imagekit.io", desc: "Image optimization & CDN", pricing: "Freemium" },
+    { id: "api-bunnycdn", name: "Bunny.net", category: "public-apis", subcategory: "test", tags: ["CDN", "Storage"], url: "https://bunny.net", desc: "Fast CDN & storage", pricing: "Freemium" },
+
+    // Search & Discovery
+    { id: "api-algolia", name: "Algolia", category: "public-apis", subcategory: "test", tags: ["Search", "Fast"], url: "https://algolia.com", desc: "Fast search API", pricing: "Freemium" },
+    { id: "api-typesense", name: "Typesense", category: "public-apis", subcategory: "test", tags: ["Search", "Open Source"], url: "https://typesense.org", desc: "Open source search", pricing: "Freemium" },
+    { id: "api-meilisearch", name: "Meilisearch", category: "public-apis", subcategory: "test", tags: ["Search", "Open Source"], url: "https://meilisearch.com", desc: "Lightning fast search", pricing: "Freemium", isHot: true },
+
+    // AI & ML APIs
+    { id: "api-anthropic", name: "Anthropic API", category: "public-apis", subcategory: "test", tags: ["API", "LLM", "Claude"], url: "https://anthropic.com", desc: "Claude API access", pricing: "Freemium" },
+    { id: "api-together", name: "Together AI", category: "public-apis", subcategory: "test", tags: ["API", "Models"], url: "https://together.ai", desc: "Fast open model inference", pricing: "Freemium", isHot: true },
+    { id: "api-anyscale", name: "Anyscale", category: "public-apis", subcategory: "test", tags: ["API", "LLM"], url: "https://anyscale.com", desc: "LLM serving platform", pricing: "Freemium" },
+    { id: "api-deepinfra", name: "DeepInfra", category: "public-apis", subcategory: "test", tags: ["API", "Models"], url: "https://deepinfra.com", desc: "Low-cost AI inference", pricing: "Freemium" },
+    { id: "api-fireworks", name: "Fireworks AI", category: "public-apis", subcategory: "test", tags: ["API", "Fast"], url: "https://fireworks.ai", desc: "Fast generative AI API", pricing: "Freemium" },
+    { id: "api-perplexityapi", name: "Perplexity API", category: "public-apis", subcategory: "test", tags: ["API", "Search AI"], url: "https://docs.perplexity.ai", desc: "AI search API", pricing: "Freemium" },
+    { id: "api-cohere", name: "Cohere", category: "public-apis", subcategory: "test", tags: ["API", "NLP"], url: "https://cohere.com", desc: "NLP API platform", pricing: "Freemium" },
+    { id: "api-mistral", name: "Mistral AI", category: "public-apis", subcategory: "test", tags: ["API", "LLM"], url: "https://mistral.ai", desc: "Open LLM provider", pricing: "Freemium", isHot: true },
+    { id: "api-openrouter", name: "OpenRouter", category: "public-apis", subcategory: "test", tags: ["API", "Multi-Model"], url: "https://openrouter.ai", desc: "One API, all models", pricing: "Freemium", isHot: true },
+
+    // Vector Databases
+    { id: "api-pinecone", name: "Pinecone", category: "public-apis", subcategory: "test", tags: ["Vector", "Database"], url: "https://pinecone.io", desc: "Vector database", pricing: "Freemium", isHot: true },
+    { id: "api-weaviate", name: "Weaviate", category: "public-apis", subcategory: "test", tags: ["Vector", "Open Source"], url: "https://weaviate.io", desc: "Open source vector DB", pricing: "Freemium" },
+    { id: "api-qdrant", name: "Qdrant", category: "public-apis", subcategory: "test", tags: ["Vector", "Open Source"], url: "https://qdrant.tech", desc: "Vector search engine", pricing: "Freemium" },
+    { id: "api-chromadb", name: "ChromaDB", category: "public-apis", subcategory: "test", tags: ["Vector", "Embeddings"], url: "https://trychroma.com", desc: "AI-native embedding DB", pricing: "Free" },
+
+    // Developer Tools & Utilities
+    { id: "api-zerossl", name: "ZeroSSL", category: "public-apis", subcategory: "test", tags: ["SSL", "Security"], url: "https://zerossl.com", desc: "Free SSL certificates", pricing: "Freemium" },
+    { id: "api-letsencrypt", name: "Let's Encrypt", category: "public-apis", subcategory: "test", tags: ["SSL", "Free"], url: "https://letsencrypt.org", desc: "Free SSL/TLS certs", pricing: "Free" },
+    { id: "api-ngrok", name: "ngrok", category: "public-apis", subcategory: "test", tags: ["Tunnel", "Dev"], url: "https://ngrok.com", desc: "Expose localhost", pricing: "Freemium", isHot: true },
+    { id: "api-localtunnel", name: "LocalTunnel", category: "public-apis", subcategory: "test", tags: ["Tunnel", "Free"], url: "https://localtunnel.me", desc: "Free localhost tunnel", pricing: "Free" },
+    { id: "api-crontogo", name: "Cron-job.org", category: "public-apis", subcategory: "test", tags: ["Cron", "Scheduler"], url: "https://cron-job.org", desc: "Free cron job service", pricing: "Free" },
+    { id: "api-upstash-qstash", name: "QStash", category: "public-apis", subcategory: "test", tags: ["Queue", "Serverless"], url: "https://upstash.com/qstash", desc: "Serverless message queue", pricing: "Freemium" },
+    { id: "api-inngest", name: "Inngest", category: "public-apis", subcategory: "test", tags: ["Events", "Queue"], url: "https://inngest.com", desc: "Event-driven functions", pricing: "Freemium" },
+
+    // Fun & Learning APIs
+    { id: "api-catfact", name: "Cat Facts", category: "public-apis", subcategory: "fun", tags: ["Fun", "Cats"], url: "https://catfact.ninja", desc: "Random cat facts", pricing: "Free" },
+    { id: "api-dogapi", name: "Dog API", category: "public-apis", subcategory: "fun", tags: ["Fun", "Dogs"], url: "https://dog.ceo/dog-api", desc: "Random dog images", pricing: "Free" },
+    { id: "api-bored", name: "Bored API", category: "public-apis", subcategory: "fun", tags: ["Fun", "Activities"], url: "https://boredapi.com", desc: "Activity suggestions", pricing: "Free" },
+    { id: "api-trivia", name: "Open Trivia DB", category: "public-apis", subcategory: "fun", tags: ["Quiz", "Trivia"], url: "https://opentdb.com", desc: "Trivia questions", pricing: "Free" },
+    { id: "api-quotable", name: "Quotable", category: "public-apis", subcategory: "fun", tags: ["Quotes", "Inspiration"], url: "https://github.com/lukePeavey/quotable", desc: "Random quotes API", pricing: "Free" },
+    { id: "api-adviceslip", name: "Advice Slip", category: "public-apis", subcategory: "fun", tags: ["Advice", "Fun"], url: "https://api.adviceslip.com", desc: "Random advice", pricing: "Free" },
+    { id: "api-cocktaildb", name: "TheCocktailDB", category: "public-apis", subcategory: "fun", tags: ["Drinks", "Recipes"], url: "https://thecocktaildb.com/api.php", desc: "Drink recipes", pricing: "Free" },
+    { id: "api-mealdb", name: "TheMealDB", category: "public-apis", subcategory: "fun", tags: ["Food", "Recipes"], url: "https://themealdb.com/api.php", desc: "Food recipes API", pricing: "Free" },
+    { id: "api-rickmorty", name: "Rick & Morty API", category: "public-apis", subcategory: "fun", tags: ["TV", "Fun"], url: "https://rickandmortyapi.com", desc: "Rick & Morty data", pricing: "Free" },
+    { id: "api-marvel", name: "Marvel API", category: "public-apis", subcategory: "fun", tags: ["Comics", "Fun"], url: "https://developer.marvel.com", desc: "Marvel comics data", pricing: "Free" },
+    { id: "api-swapi", name: "SWAPI", category: "public-apis", subcategory: "fun", tags: ["Star Wars", "Fun"], url: "https://swapi.dev", desc: "Star Wars API", pricing: "Free" },
+    { id: "api-dnd5e", name: "D&D 5e API", category: "public-apis", subcategory: "fun", tags: ["Games", "RPG"], url: "https://dnd5eapi.co", desc: "D&D 5th edition data", pricing: "Free" },
+
+    // Geo & Location
+    { id: "api-ipinfo", name: "IPinfo", category: "public-apis", subcategory: "data", tags: ["IP", "Geo"], url: "https://ipinfo.io", desc: "IP geolocation", pricing: "Freemium" },
+    { id: "api-ipapi", name: "IP-API", category: "public-apis", subcategory: "data", tags: ["IP", "Geo"], url: "https://ip-api.com", desc: "Free IP geolocation", pricing: "Free" },
+    { id: "api-nominatim", name: "Nominatim", category: "public-apis", subcategory: "weather", tags: ["Maps", "Geocoding"], url: "https://nominatim.org", desc: "OpenStreetMap geocoding", pricing: "Free" },
+    { id: "api-positionstack", name: "PositionStack", category: "public-apis", subcategory: "weather", tags: ["Geo", "Address"], url: "https://positionstack.com", desc: "Forward/reverse geocoding", pricing: "Freemium" },
+
+    // News & Content
+    { id: "api-newsapi", name: "News API", category: "public-apis", subcategory: "data", tags: ["News", "Headlines"], url: "https://newsapi.org", desc: "News headlines API", pricing: "Freemium" },
+    { id: "api-gnews", name: "GNews", category: "public-apis", subcategory: "data", tags: ["News", "Articles"], url: "https://gnews.io", desc: "News articles API", pricing: "Freemium" },
+    { id: "api-mediastack", name: "Mediastack", category: "public-apis", subcategory: "data", tags: ["News", "Live"], url: "https://mediastack.com", desc: "Live news API", pricing: "Freemium" },
+    { id: "api-currents", name: "Currents API", category: "public-apis", subcategory: "data", tags: ["News", "Tech"], url: "https://currentsapi.services", desc: "Latest news API", pricing: "Free" },
+
 ];
 
 export const prompts: Prompt[] = [

@@ -166,6 +166,7 @@ const sidebarStructure = [
         label: "Public APIs",
         icon: Globe,
         items: [
+            { id: "mcp", label: "MCP Servers", icon: Cpu },
             { id: "test", label: "Test APIs", icon: Terminal },
             { id: "fun", label: "Fun APIs", icon: Sparkles },
             { id: "data", label: "Data APIs", icon: Database },

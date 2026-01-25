@@ -74,6 +74,7 @@ const Index = () => {
     media: "Video Assets",
     // Public APIs
     "public-apis": "Public APIs",
+    mcp: "MCP Servers",
     test: "Test APIs",
     fun: "Fun APIs",
     data: "Data APIs",
