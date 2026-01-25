@@ -104,8 +104,9 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply text-foreground font-sans antialiased;
     font-family: 'Inter', sans-serif;
+    background: transparent;
   }
 }
 
@@ -124,5 +125,110 @@
   
   .shadow-hover {
     box-shadow: var(--shadow-hover);
+  }
+
+  /* Glass morphism for 3D background */
+  .glass {
+    @apply backdrop-blur-xl bg-background/80;
+  }
+
+  .glass-card {
+    @apply backdrop-blur-md bg-card/90;
+  }
+
+  /* Lava lamp animations */
+  @keyframes lava-1 {
+    0%, 100% {
+      transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+    25% {
+      transform: translate(100px, 200px) scale(1.1) rotate(10deg);
+    }
+    50% {
+      transform: translate(200px, 100px) scale(0.9) rotate(-5deg);
+    }
+    75% {
+      transform: translate(50px, 300px) scale(1.05) rotate(5deg);
+    }
+  }
+
+  @keyframes lava-2 {
+    0%, 100% {
+      transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+    25% {
+      transform: translate(-150px, 100px) scale(0.95) rotate(-10deg);
+    }
+    50% {
+      transform: translate(-100px, 250px) scale(1.1) rotate(5deg);
+    }
+    75% {
+      transform: translate(-200px, 150px) scale(1) rotate(-5deg);
+    }
+  }
+
+  @keyframes lava-3 {
+    0%, 100% {
+      transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+    25% {
+      transform: translate(150px, -100px) scale(1.1) rotate(5deg);
+    }
+    50% {
+      transform: translate(50px, -200px) scale(0.95) rotate(-10deg);
+    }
+    75% {
+      transform: translate(200px, -50px) scale(1.05) rotate(8deg);
+    }
+  }
+
+  @keyframes lava-4 {
+    0%, 100% {
+      transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    }
+    33% {
+      transform: translate(calc(-50% + 100px), calc(-50% - 150px)) scale(1.15) rotate(15deg);
+    }
+    66% {
+      transform: translate(calc(-50% - 100px), calc(-50% + 100px)) scale(0.9) rotate(-10deg);
+    }
+  }
+
+  @keyframes lava-5 {
+    0%, 100% {
+      transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+    20% {
+      transform: translate(-100px, -100px) scale(1.1) rotate(-8deg);
+    }
+    40% {
+      transform: translate(50px, -150px) scale(0.95) rotate(5deg);
+    }
+    60% {
+      transform: translate(-150px, 50px) scale(1.05) rotate(-5deg);
+    }
+    80% {
+      transform: translate(100px, 100px) scale(0.9) rotate(10deg);
+    }
+  }
+
+  .animate-lava-1 {
+    animation: lava-1 20s ease-in-out infinite;
+  }
+
+  .animate-lava-2 {
+    animation: lava-2 25s ease-in-out infinite;
+  }
+
+  .animate-lava-3 {
+    animation: lava-3 22s ease-in-out infinite;
+  }
+
+  .animate-lava-4 {
+    animation: lava-4 18s ease-in-out infinite;
+  }
+
+  .animate-lava-5 {
+    animation: lava-5 28s ease-in-out infinite;
   }
 }

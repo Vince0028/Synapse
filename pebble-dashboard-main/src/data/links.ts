@@ -253,7 +253,11 @@ export const links: LinkItem[] = [
     { id: "med-lottie", name: "LottieFiles", category: "design", subcategory: "media", tags: ["Animation", "JSON"], url: "https://lottiefiles.com", desc: "Free animations", pricing: "Freemium" },
     { id: "des-rive", name: "Rive", category: "design", subcategory: "media", tags: ["Animation", "Interactive"], url: "https://rive.app", desc: "Interactive motion graphics", pricing: "Freemium" },
     { id: "des-reactbits", name: "React Bits", category: "design", subcategory: "media", tags: ["React", "Animation"], url: "https://reactbits.dev", desc: "Animated React components", pricing: "Free", isHot: true },
-    { id: "des-vantajs", name: "Vanta.js", category: "design", subcategory: "media", tags: ["Effects", "3D"], url: "https://www.vantajs.com", desc: "Animated 3D backgrounds", pricing: "Free", isHot: true },
+    { id: "des-vantajs", name: "Vanta.js", category: "design", subcategory: "media", tags: ["Effects", "3D Background"], url: "https://www.vantajs.com", desc: "Animated 3D backgrounds", pricing: "Free", isHot: true },
+    { id: "des-threejs", name: "Three.js", category: "design", subcategory: "media", tags: ["3D", "WebGL"], url: "https://threejs.org", desc: "JavaScript 3D library", pricing: "Free", isHot: true },
+    { id: "des-r3f", name: "React Three Fiber", category: "design", subcategory: "media", tags: ["3D", "React"], url: "https://docs.pmnd.rs/react-three-fiber", desc: "React renderer for Three.js", pricing: "Free" },
+    { id: "des-tsparticles", name: "tsParticles", category: "design", subcategory: "media", tags: ["Particles", "Animation"], url: "https://particles.js.org", desc: "Animated particle backgrounds", pricing: "Free" },
+    { id: "des-spline3d", name: "Spline 3D", category: "design", subcategory: "media", tags: ["3D Background", "No-Code"], url: "https://spline.design", desc: "Design 3D in browser", pricing: "Freemium", isHot: true },
 
     // Entertainment & News (Merged into Design/Media or kept separate? User had Design & Media. I will put News into Public APIs -> or just leave it out? The user had a strict list. 
     // Wait, the user's list did NOT have "Entertainment". "Tech News" was in "Entertainment" before. Grok tag has "News". 

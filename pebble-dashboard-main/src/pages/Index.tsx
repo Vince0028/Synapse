@@ -173,8 +173,8 @@ const Index = () => {
     <SidebarProvider defaultOpen={true}>
       <AppSidebar activeCategory={activeCategory} onCategoryChange={handleCategoryChange} />
       <SidebarInset>
-        <div className="min-h-screen bg-background transition-colors duration-300">
-          <header className="sticky top-0 z-30 flex items-center justify-between px-6 py-4 bg-background/80 backdrop-blur-md border-b">
+        <div className="min-h-screen transition-colors duration-300">
+          <header className="sticky top-0 z-30 flex items-center justify-between px-6 py-4 bg-background/60 backdrop-blur-xl border-b border-border/50">
             <div className="flex items-center gap-3">
               <SidebarTrigger />
               <div className="flex flex-col items-start">
