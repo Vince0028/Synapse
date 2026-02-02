@@ -69,6 +69,7 @@ export const links: LinkItem[] = [
     { id: "ai-leonardo", name: "Leonardo.Ai", category: "create-ai", subcategory: "image", tags: ["Image", "Game Assets"], url: "https://leonardo.ai", desc: "Production quality assets", pricing: "Freemium", isHot: true },
     { id: "ai-ideogram", name: "Ideogram", category: "create-ai", subcategory: "image", tags: ["Image", "Typography"], url: "https://ideogram.ai", desc: "Text-accurate image gen", pricing: "Freemium" },
     { id: "ai-chatgpt-gen", name: "ChatGPT (Image)", category: "create-ai", subcategory: "image", tags: ["Image", "DALL-E"], url: "https://chatgpt.com", desc: "GPT-4 + DALL-E image gen", pricing: "Freemium" },
+    { id: "ai-imagefx", name: "ImageFX", category: "create-ai", subcategory: "image", tags: ["Image", "Google", "Imagen 3"], url: "https://aitestkitchen.withgoogle.com/tools/image-fx", desc: "Google's advanced image generator", pricing: "Free", isHot: true },
 
     // Video Maker
     { id: "ai-sora", name: "Sora", category: "create-ai", subcategory: "video", tags: ["Video", "AI Video"], url: "https://openai.com/sora", desc: "OpenAI video generation", pricing: "Free Trial", isHot: true },
@@ -76,6 +77,7 @@ export const links: LinkItem[] = [
     { id: "ai-pika", name: "Pika", category: "create-ai", subcategory: "video", tags: ["Video", "Short Clips"], url: "https://pika.art", desc: "Text-to-video platform", pricing: "Freemium" },
     { id: "ai-luma", name: "Luma Dream Machine", category: "create-ai", subcategory: "video", tags: ["Video", "Realistic"], url: "https://lumalabs.ai", desc: "High-quality video AI", pricing: "Freemium" },
     { id: "med-24", name: "Opus Pro", category: "create-ai", subcategory: "video", tags: ["Video", "Repurpose"], url: "https://opus.pro", desc: "Video repurposing", pricing: "Free Trial" },
+    { id: "ai-videofx", name: "VideoFX", category: "create-ai", subcategory: "video", tags: ["Video", "Google", "Veo"], url: "https://aitestkitchen.withgoogle.com/tools/video-fx", desc: "Generate 1080p video clips", pricing: "Free", isHot: true },
 
     // Music & Voice
     { id: "ai-suno", name: "Suno AI", category: "create-ai", subcategory: "music", tags: ["Music", "AI Audio"], url: "https://suno.ai", desc: "AI music generation", pricing: "Freemium", isHot: true },
@@ -83,6 +85,7 @@ export const links: LinkItem[] = [
     { id: "tts-53", name: "ElevenLabs", category: "create-ai", subcategory: "voice", tags: ["Voice", "TTS"], url: "https://elevenlabs.io", desc: "AI voice generator", pricing: "Freemium" },
     { id: "tts-54", name: "Resemble AI", category: "create-ai", subcategory: "voice", tags: ["Voice", "Cloning"], url: "https://resemble.ai", desc: "AI voice cloning", pricing: "Free Trial" },
     { id: "tts-56", name: "Play.ht", category: "create-ai", subcategory: "voice", tags: ["Voice", "TTS"], url: "https://play.ht", desc: "Realistic text to speech", pricing: "Freemium" },
+    { id: "ai-musicfx", name: "MusicFX", category: "create-ai", subcategory: "music", tags: ["Music", "Google"], url: "https://aitestkitchen.withgoogle.com/tools/music-fx", desc: "Generate music loops & tracks", pricing: "Free" },
 
     // App Builder
     { id: "ai-5", name: "v0.dev", category: "create-ai", subcategory: "app-builder", tags: ["App Builder", "UI", "Frontend"], url: "https://v0.dev", desc: "Generate UI with AI", pricing: "Freemium", isHot: true },
@@ -90,6 +93,7 @@ export const links: LinkItem[] = [
     { id: "ai-base44", name: "Base44", category: "create-ai", subcategory: "app-builder", tags: ["App Builder", "Full Stack"], url: "https://base44.com", desc: "Full-stack AI app generator", pricing: "Freemium", isHot: true },
     { id: "ai-replit-gen", name: "Replit", category: "create-ai", subcategory: "app-builder", tags: ["App Builder", "Hosting"], url: "https://replit.com", desc: "Build apps with Replit Agent", pricing: "Freemium", isHot: true },
     { id: "ai-google-studio", name: "Google AI Studio", category: "create-ai", subcategory: "app-builder", tags: ["Multimodal", "Gemini"], url: "https://aistudio.google.com", desc: "Build with Gemini models", pricing: "Free" },
+    { id: "ai-opal", name: "Opal", category: "create-ai", subcategory: "app-builder", tags: ["App Builder", "Google", "No-Code"], url: "https://opal.google", desc: "Build AI mini-apps with prompts", pricing: "Free", isHot: true },
 
 
     // ===== CODE & BUILD =====
@@ -185,6 +189,7 @@ export const links: LinkItem[] = [
 
     // Research Papers
     { id: "edu-notion", name: "NotebookLM", category: "learn", subcategory: "research", tags: ["Research", "Notes", "AI"], url: "https://notebooklm.google.com", desc: "AI-powered notebook", pricing: "Free", isHot: true },
+    { id: "edu-illuminate", name: "Illuminate", category: "learn", subcategory: "research", tags: ["Learning", "Audio", "Google"], url: "https://illuminate.google.com", desc: "Turn papers into audio discussions", pricing: "Free", isHot: true },
     { id: "edu-researchgate", name: "ResearchGate", category: "learn", subcategory: "research", tags: ["Papers", "Academic"], url: "https://researchgate.net", desc: "Access academic papers", pricing: "Free" },
     { id: "edu-consensus", name: "Consensus", category: "learn", subcategory: "research", tags: ["AI Research", "Search"], url: "https://consensus.app", desc: "Evidence-based answers", pricing: "Freemium" },
     { id: "edu-elicit", name: "Elicit", category: "learn", subcategory: "research", tags: ["AI Research", "Analysis"], url: "https://elicit.com", desc: "Analyze research papers", pricing: "Freemium", isHot: true },
@@ -223,6 +228,7 @@ export const links: LinkItem[] = [
     { id: "des-10", name: "Framer", category: "design", subcategory: "ui", tags: ["No-Code", "Web Design"], url: "https://framer.com", desc: "Web design tool", pricing: "Freemium" },
     { id: "des-3", name: "Lucid", category: "design", subcategory: "ui", tags: ["Diagrams", "Collab"], url: "https://lucid.co", desc: "Visual collaboration", pricing: "Freemium", studentOffer: "Free Educational Upgrade" },
     { id: "des-excalidraw", name: "Excalidraw", category: "design", subcategory: "ui", tags: ["Whiteboard", "Sketch"], url: "https://excalidraw.com", desc: "Virtual whiteboard", pricing: "Free" },
+    { id: "des-stitch", name: "Stitch", category: "design", subcategory: "ui", tags: ["UI Design", "Google", "Frontend"], url: "https://stitch.withgoogle.com", desc: "AI to UI design & code", pricing: "Free", isHot: true },
 
     // Graphics
     { id: "des-2", name: "Canva", category: "design", subcategory: "graphics", tags: ["Graphic", "Easy"], url: "https://canva.com", desc: "Easy design tool", pricing: "Freemium", studentOffer: "Free Pro (Education)", isHot: true },
@@ -563,7 +569,7 @@ export const links: LinkItem[] = [
     // Main Collections - Start here to find MCP servers!
     { id: "mcp-main", name: "Official MCP Servers", category: "public-apis", subcategory: "mcp", tags: ["MCP", "AI", "Official"], url: "https://github.com/modelcontextprotocol/servers", desc: "Official collection: Filesystem, GitHub, Postgres, Slack, Memory & more", pricing: "Free", isHot: true },
     { id: "mcp-awesome", name: "Awesome MCP Servers", category: "public-apis", subcategory: "mcp", tags: ["MCP", "List", "Community"], url: "https://github.com/punkpeye/awesome-mcp-servers", desc: "Curated community list of 100+ MCP servers", pricing: "Free", isHot: true },
-    
+
     // Individual MCP Servers (Each is its own GitHub repo)
     { id: "mcp-supabase", name: "MCP Supabase", category: "public-apis", subcategory: "mcp", tags: ["MCP", "Supabase", "Database"], url: "https://github.com/supabase-community/supabase-mcp", desc: "Supabase database & auth for AI", pricing: "Free", isHot: true },
     { id: "mcp-docker", name: "MCP Docker", category: "public-apis", subcategory: "mcp", tags: ["MCP", "Docker", "Containers"], url: "https://github.com/ckreiling/mcp-server-docker", desc: "Docker container management for AI", pricing: "Free" },
