@@ -4,6 +4,7 @@ import { SidebarProvider, SidebarInset, SidebarTrigger } from "@/components/ui/s
 import { SearchBar } from "@/components/SearchBar";
 import { LinkCard } from "@/components/LinkCard";
 import { PromptVault } from "@/components/PromptVault";
+import { FloatingTagCloud } from "@/components/FloatingTagCloud";
 import { CategoryHeader } from "@/components/CategoryHeader";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { HeaderPet } from "@/components/HeaderPet";
@@ -102,10 +103,21 @@ const Index = () => {
       });
     });
 
-    // Sort by frequency (most used first) - all tags shown with horizontal scroll
-    return Object.entries(tagCounts)
+    // 1. Sort by frequency (most used first)
+    const sortedTags = Object.entries(tagCounts)
       .sort((a, b) => b[1] - a[1])
-      .map(([tag]) => tag);
+      .map(([name, count]) => ({ name, count }));
+
+    // 2. Limit to top 40 tags (approx 7 rows) to reduce clutter
+    const limitedTags = sortedTags.slice(0, 40);
+
+    // 3. Shuffle the array for random organic layout (Fisher-Yates shuffle)
+    for (let i = limitedTags.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [limitedTags[i], limitedTags[j]] = [limitedTags[j], limitedTags[i]];
+    }
+
+    return limitedTags;
   }, [activeCategory]);
 
   const filteredLinks = useMemo(() => {
@@ -249,24 +261,13 @@ const Index = () => {
                     </div>
                   </div>
 
-                  {/* Dynamic Tag Filters - Limited to ~11 lines */}
+                  {/* Dynamic Tag Bubbles */}
                   {availableTags.length > 0 && (
-                    <div key={activeCategory} className="max-w-6xl mx-auto">
-                      <div className="flex flex-wrap gap-2 justify-center max-h-[264px] overflow-hidden">
-                        {availableTags.map((tag: string) => (
-                          <button
-                            key={tag}
-                            onClick={() => setTagFilter(tagFilter === tag ? null : tag)}
-                            className={`px-3 py-1 rounded-full text-xs font-medium transition-colors border ${tagFilter === tag
-                              ? "bg-primary text-primary-foreground border-primary"
-                              : "bg-secondary/50 hover:bg-secondary text-secondary-foreground border-transparent"
-                              }`}
-                          >
-                            {tag}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
+                    <FloatingTagCloud
+                      tags={availableTags}
+                      selectedTag={tagFilter}
+                      onTagClick={(tag) => setTagFilter(tagFilter === tag ? null : tag)}
+                    />
                   )}
                 </>
               )}

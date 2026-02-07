@@ -43,7 +43,7 @@ export function LinkCard({ link, index, isFavorite = false, onToggleFavorite }: 
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        "group block p-6 rounded-card relative",
+        "group block p-6 rounded-[8px] relative",
         "bg-card/95 backdrop-blur-sm border border-border/80",
         "shadow-card hover:shadow-hover",
         "transition-all duration-300",

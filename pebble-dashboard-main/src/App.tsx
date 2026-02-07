@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import { VantaBackground } from "@/components/VantaBackground";
+import { NorthernLightsBackground } from "@/components/NorthernLightsBackground";
 
 const queryClient = new QueryClient();
 
@@ -23,7 +23,7 @@ const App = () => (
         disableTransitionOnChange
       >
         <TooltipProvider>
-          <VantaBackground />
+          <NorthernLightsBackground />
           <Toaster />
           <Sonner />
           <BrowserRouter>
