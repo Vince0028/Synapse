@@ -47,12 +47,13 @@ export function NorthernLightsBackground() {
 
         const initStars = () => {
             stars = [];
-            const starCount = Math.floor((width * height) / theme.starCountDivisor);
+            // Optimize: Significantly fewer stars
+            const starCount = Math.floor((width * height) / (theme.starCountDivisor * 2));
             for (let i = 0; i < starCount; i++) {
                 stars.push({
                     x: Math.random() * width,
                     y: Math.random() * height,
-                    size: Math.random() * 1.5, // Slightly smaller
+                    size: Math.random() * 1.5,
                     opacity: Math.random(),
                     flickerOffset: Math.random() * 100
                 });
@@ -60,42 +61,41 @@ export function NorthernLightsBackground() {
         };
 
         const drawStars = () => {
+            ctx.fillStyle = theme.starColor + " 0.8)"; // Batch fill style change
             stars.forEach(star => {
-                const flicker = Math.sin(Date.now() * 0.002 + star.flickerOffset) * 0.4;
-                ctx.fillStyle = `${theme.starColor} ${Math.max(0, star.opacity + flicker)})`;
-                ctx.beginPath();
-                // Optimization: Use rect instead of arc for stars (faster rendering)
+                // Optimize: Simple flickering, skip Math.sin for every star every frame if possible
+                // heavily simplified flicker
+                if (Math.random() > 0.95) {
+                    star.opacity = Math.random();
+                }
+                ctx.globalAlpha = star.opacity;
                 ctx.fillRect(star.x, star.y, star.size, star.size);
             });
+            ctx.globalAlpha = 1;
         };
 
         const drawAurora = (time: number) => {
-            // Optimization: Reduce curtains and increase step size
-            const curtains = 3;
-            const speed = 1.0;
-            const intensity = resolvedTheme === 'dark' ? 0.7 : 0.5; // Softer in light mode
+            // Optimize: Reduce curtains and increase step size
+            const curtains = 2; // Reduced from 3
+            const speed = 0.5; // Slower speed
+            const intensity = resolvedTheme === 'dark' ? 0.6 : 0.4;
 
-            const t = time * 0.0002 * speed; // Slower time for smoothness
+            const t = time * 0.0002 * speed;
             const baseAlpha = intensity;
 
             for (let c = 0; c < curtains; c++) {
-                const curtainOffset = c * 150; // Spacing
+                const curtainOffset = c * 150;
                 const opacity = (baseAlpha / curtains) * (1 - c / curtains * 0.5);
 
-                // Optimization: Step 6 instead of 2 (3x fewer draw calls)
-                for (let x = 0; x <= width; x += 6) {
+                // Optimize: Step 10 instead of 6 (fewer draw calls)
+                for (let x = 0; x <= width; x += 10) {
                     const waveX = x * 0.002;
                     const noise = Math.sin(waveX + t + curtainOffset * 0.01) * 80 +
                         Math.sin(waveX * 2.5 - t * 0.5) * 40;
 
-                    // Start lower (55% down instead of 40%)
                     const yPos = height * (0.55 + c * 0.08) + noise;
-                    // Shorter rays to prevent reaching header
                     const rayHeight = 250 + Math.sin(x * 0.008 + t + c) * 100;
 
-                    // Optimization: Create gradient only once per curtain or per frame? 
-                    // Per vertical line is expensive but necessary for the effect.
-                    // We can't easily optimize this out without changing the look significantly.
                     const grad = ctx.createLinearGradient(0, yPos - rayHeight, 0, yPos);
                     grad.addColorStop(0, 'transparent');
                     grad.addColorStop(0.2, theme.primary);
@@ -103,9 +103,8 @@ export function NorthernLightsBackground() {
                     grad.addColorStop(1, 'transparent');
 
                     ctx.strokeStyle = grad;
-                    ctx.globalAlpha = opacity * (Math.sin(x * 0.05 + t * 2) * 0.2 + 0.8);
-                    // Optimization: Thicker line to cover gaps from larger step
-                    ctx.lineWidth = 4; // match step size roughly
+                    ctx.globalAlpha = opacity * 0.8; // Simplifed alpha calc
+                    ctx.lineWidth = 6; // Thicker lines for larger step
                     ctx.beginPath();
                     ctx.moveTo(x, yPos);
                     ctx.lineTo(x, yPos - rayHeight);
@@ -123,22 +122,32 @@ export function NorthernLightsBackground() {
             initStars();
         };
 
+        let lastFrameTime = 0;
+        const targetFPS = 30; // Limit to 30 FPS
+        const frameInterval = 1000 / targetFPS;
+
         const render = (time: number) => {
+            animationFrameId = requestAnimationFrame(render);
+
+            const elapsed = time - lastFrameTime;
+            if (elapsed < frameInterval) return;
+
+            lastFrameTime = time - (elapsed % frameInterval);
+
             // Background clear
             ctx.fillStyle = theme.sky;
             ctx.fillRect(0, 0, width, height);
 
-            // Sky glow
+            // Sky glow - maybe static? 
+            // Calculated once per frame is fine, it's just one rect.
             const skyGrad = ctx.createRadialGradient(width / 2, height * 0.4, 0, width / 2, height * 0.4, width);
             skyGrad.addColorStop(0, theme.sky);
-            skyGrad.addColorStop(1, resolvedTheme === 'dark' ? '#000000' : '#e2e8f0'); // Dark vs Slate-200
+            skyGrad.addColorStop(1, resolvedTheme === 'dark' ? '#000000' : '#e2e8f0');
             ctx.fillStyle = skyGrad;
             ctx.fillRect(0, 0, width, height);
 
             drawStars();
             drawAurora(time);
-
-            animationFrameId = requestAnimationFrame(render);
         };
 
         window.addEventListener('resize', resize);
