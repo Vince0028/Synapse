@@ -883,6 +883,24 @@ Please critique and improve my writing focusing on:
 
 Provide the corrected version followed by a list of key changes you made and why.`,
     },
+    {
+        id: "image-restoration",
+        title: "Image Restoration & Upscale",
+        content: `**Task:** Image Restoration & Upscale
+
+**Positive Prompt:**
+Restore and enhance the provided image. Preserve original identity, facial structure, proportions and composition. High-fidelity photo restoration, ultra-realistic, natural skin texture, accurate details, professional photographic look. 4K output, sharp but natural focus, modern cinematic lighting, subtle volumetric lighting, professional color grading, depth of field, HDR. Shot on Arri Alexa, raw photo aesthetic, masterpiece.
+
+**Negative Prompt:**
+Creative reinterpretation, style change, identity alteration, face reshaping, exaggerated features, cartoonish, painting, illustration, over-sharpening, plastic skin, blur, noise, film grain, jpeg artifacts, distortion, bad anatomy, overexposed, underexposed, washed out colors.
+
+**Parameters:**
+• Steps: 30
+• CFG Scale: 6.5
+• Denoising Strength: 0.45
+• Upscaler: 4x_NMKD_Siax_200k
+• Target Resolution: 4K`,
+    },
 ];
 
 export const promptVault = prompts[0];

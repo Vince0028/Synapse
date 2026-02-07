@@ -108,8 +108,8 @@ const Index = () => {
       .sort((a, b) => b[1] - a[1])
       .map(([name, count]) => ({ name, count }));
 
-    // 2. Limit to top 40 tags (approx 7 rows) to reduce clutter
-    const limitedTags = sortedTags.slice(0, 40);
+    // 2. Limit to top 80 tags to reduce clutter but show more
+    const limitedTags = sortedTags.slice(0, 80);
 
     // 3. Shuffle the array for random organic layout (Fisher-Yates shuffle)
     for (let i = limitedTags.length - 1; i > 0; i--) {
@@ -303,8 +303,8 @@ const Index = () => {
               </div>
             )}
 
-            {/* Prompt Vault Section - Show on Dashboard ('all') OR Prompt Tab ('prompts') */}
-            {(activeCategory === "prompts" || (activeCategory === "all" && !favoritesFilter)) && (
+            {/* Prompt Vault Section - Show on Dashboard ('all') OR Prompt Tab ('prompts') - verify no tag filter active */}
+            {(activeCategory === "prompts" || (activeCategory === "all" && !favoritesFilter && !tagFilter)) && (
               <section className={activeCategory === "all" ? "max-w-full pt-8 border-t" : "max-w-full"}>
                 {activeCategory === "all" && (
                   <h2 className="text-2xl font-bold text-foreground mb-6">
