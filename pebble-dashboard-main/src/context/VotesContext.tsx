@@ -55,20 +55,22 @@ export function VotesProvider({ children }: { children: React.ReactNode }) {
     }, []);
 
     const updateVote = async (linkId: string, increment: boolean) => {
-        // Optimistic Update handled by caller if needed, or here?
-        // Let's rely on caller for simple optimistic, or just wait for echo.
-        // Actually, calling supabase.rpc is best, but we are using upsert for now.
+        // Optimistically update local state immediately for UI responsiveness
+        setVotes(prev => {
+            const current = prev[linkId] || 0;
+            const next = increment ? current + 1 : Math.max(0, current - 1);
+            return { ...prev, [linkId]: next };
+        });
 
-        // We need to know current count to increment safely?
-        // "Safe" implementation would use an RPC function 'increment_vote'.
-        // For now, we will read from local state to be faster, but it's slightly unsafe for concurrency.
-        // Better: Read current value from our local cache!
+        // Fetch the LATEST count from the server to ensure we don't overwrite with stale data
+        const { data: currentRemote } = await supabase
+            .from('votes')
+            .select('count')
+            .eq('link_id', linkId)
+            .single();
 
-        const currentCount = votes[linkId] || 0;
-        const newCount = increment ? currentCount + 1 : Math.max(0, currentCount - 1);
-
-        // Optimistically update local state immediately
-        setVotes(prev => ({ ...prev, [linkId]: newCount }));
+        const trueCount = currentRemote?.count || 0;
+        const newCount = increment ? trueCount + 1 : Math.max(0, trueCount - 1);
 
         const { error } = await supabase
             .from('votes')
@@ -76,7 +78,7 @@ export function VotesProvider({ children }: { children: React.ReactNode }) {
 
         if (error) {
             console.error('Error updating vote:', error);
-            // Revert if error? (Optional, skipping for simplicity)
+            // Revert local state if needed (optional, effectively handled by next realtime update)
         }
     };
 
