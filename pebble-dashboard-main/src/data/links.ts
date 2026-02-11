@@ -235,6 +235,7 @@ export const links: LinkItem[] = [
     { id: "des-photopea", name: "Photopea", category: "design", subcategory: "graphics", tags: ["Editor", "Web"], url: "https://photopea.com", desc: "Free Photoshop alternative", pricing: "Free" },
     { id: "des-coolors", name: "Coolors", category: "design", subcategory: "graphics", tags: ["Colors", "Palette"], url: "https://coolors.co", desc: "Color palette generator", pricing: "Freemium" },
     { id: "des-dribbble", name: "Dribbble", category: "design", subcategory: "graphics", tags: ["Inspiration", "Design"], url: "https://dribbble.com", desc: "Design inspiration", pricing: "Freemium" },
+    { id: "des-ascii", name: "ASCII Art Tools", category: "design", subcategory: "graphics", tags: ["ASCII", "Text Art"], url: "https://www.asciiart.eu/tools", desc: "ASCII art generation tools", pricing: "Free" },
 
     // 3D Design
     { id: "des-spline", name: "Spline", category: "design", subcategory: "3d", tags: ["3D", "Web"], url: "https://spline.design", desc: "3D design for the web", pricing: "Freemium" },
