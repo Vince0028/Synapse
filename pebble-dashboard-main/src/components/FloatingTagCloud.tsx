@@ -20,7 +20,7 @@ export function FloatingTagCloud({ tags, selectedTag, onTagClick }: FloatingTagC
         return { min: Math.min(...counts), max: Math.max(...counts) };
     }, [tags]);
 
-    // Helper to determine size class based on count
+   
     const getSizeClass = (count: number) => {
         if (max === min) return "text-sm p-4"; // Default if all same
 
