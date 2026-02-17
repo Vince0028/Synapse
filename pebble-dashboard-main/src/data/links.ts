@@ -99,6 +99,7 @@ export const links: LinkItem[] = [
     // ===== CODE & BUILD =====
     // Code Helper
     { id: "ai-30", name: "GitHub Copilot", category: "code-build", subcategory: "code-helper", tags: ["Coding", "AI Helper", "Student"], url: "https://github.com/features/copilot", desc: "GitHub's AI code assistant", pricing: "Freemium", studentOffer: "Free with GitHub Student Pack", isHot: true },
+    { id: "ai-codewiki", name: "Code Wiki", category: "code-build", subcategory: "code-helper", tags: ["Docs", "Google", "AI"], url: "https://codewiki.google", desc: "AI written docs for your code", pricing: "Free", isHot: true },
     { id: "ai-tabnine", name: "Tabnine", category: "code-build", subcategory: "code-helper", tags: ["Coding", "Autosuggest"], url: "https://tabnine.com", desc: "AI code assistant", pricing: "Freemium" },
     { id: "ai-31", name: "Blackbox AI", category: "code-build", subcategory: "code-helper", tags: ["Coding", "Search Code"], url: "https://blackbox.ai", desc: "AI-powered coding helper", pricing: "Freemium" },
 
@@ -189,6 +190,7 @@ export const links: LinkItem[] = [
 
     // Research Papers
     { id: "edu-notion", name: "NotebookLM", category: "learn", subcategory: "research", tags: ["Research", "Notes", "AI"], url: "https://notebooklm.google.com", desc: "AI-powered notebook", pricing: "Free", isHot: true },
+    { id: "edu-artificialanalysis", name: "Artificial Analysis", category: "learn", subcategory: "research", tags: ["Benchmarks", "LLM", "Analysis"], url: "https://artificialanalysis.ai", desc: "Independent analysis of AI models", pricing: "Free", isHot: true },
     { id: "edu-illuminate", name: "Illuminate", category: "learn", subcategory: "research", tags: ["Learning", "Audio", "Google"], url: "https://illuminate.google.com", desc: "Turn papers into audio discussions", pricing: "Free", isHot: true },
     { id: "edu-researchgate", name: "ResearchGate", category: "learn", subcategory: "research", tags: ["Papers", "Academic"], url: "https://researchgate.net", desc: "Access academic papers", pricing: "Free" },
     { id: "edu-consensus", name: "Consensus", category: "learn", subcategory: "research", tags: ["AI Research", "Search"], url: "https://consensus.app", desc: "Evidence-based answers", pricing: "Freemium" },
@@ -553,6 +555,7 @@ export const links: LinkItem[] = [
 
     // AI Agents
     { id: "auto-autogen", name: "AutoGen", category: "automation", subcategory: "agents", tags: ["Agents", "Microsoft"], url: "https://github.com/microsoft/autogen", desc: "Multi-agent framework", pricing: "Free" },
+    { id: "auto-openclaw", name: "OpenClaw", category: "automation", subcategory: "agents", tags: ["Agent", "Open Source", "Local"], url: "https://github.com/openclaw/openclaw", desc: "Autonomous AI agent", pricing: "Free", isHot: true },
     { id: "auto-crewai", name: "CrewAI", category: "automation", subcategory: "agents", tags: ["Agents", "Python"], url: "https://crewai.com", desc: "AI agent orchestration", pricing: "Free" },
     { id: "auto-langchain", name: "LangChain", category: "automation", subcategory: "agents", tags: ["LLM", "Framework"], url: "https://langchain.com", desc: "LLM app framework", pricing: "Free", isHot: true },
     { id: "auto-gumloop", name: "Gumloop", category: "automation", subcategory: "agents", tags: ["Automation", "AI Agent"], url: "https://gumloop.com", desc: "Automate ops with AI agents", pricing: "Freemium", isHot: true },
