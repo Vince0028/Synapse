@@ -181,6 +181,7 @@ export const links: LinkItem[] = [
     { id: "edu-trailhead", name: "Trailhead", category: "learn", subcategory: "docs", tags: ["Salesforce", "Learning"], url: "https://trailhead.salesforce.com", desc: "Salesforce learning", pricing: "Free" },
     { id: "edu-mslearn", name: "Microsoft Learn", category: "learn", subcategory: "docs", tags: ["Microsoft", "Learning"], url: "https://learn.microsoft.com", desc: "Microsoft learning paths", pricing: "Free" },
     { id: "edu-outsystems", name: "OutSystems", category: "learn", subcategory: "docs", tags: ["Low-Code", "Docs"], url: "https://outsystems.com", desc: "Low-code platform", pricing: "Free Trial" },
+    { id: "spec-oembed", name: "oEmbed", category: "learn", subcategory: "docs", tags: ["Spec", "Embeds", "Media"], url: "https://oembed.com", desc: "Standard for embedding content", pricing: "Free" },
 
 
     // Math & STEM
@@ -552,6 +553,7 @@ export const links: LinkItem[] = [
     { id: "auto-temporal", name: "Temporal", category: "automation", subcategory: "developer", tags: ["Workflows", "Durable"], url: "https://temporal.io", desc: "Durable workflow engine", pricing: "Freemium" },
     { id: "auto-airbyte", name: "Airbyte", category: "automation", subcategory: "developer", tags: ["Data Sync", "Open Source"], url: "https://airbyte.com", desc: "Data integration platform", pricing: "Free" },
     { id: "auto-airflow", name: "Apache Airflow", category: "automation", subcategory: "developer", tags: ["Workflows", "Data"], url: "https://airflow.apache.org", desc: "Workflow orchestration", pricing: "Free" },
+    { id: "auto-apify", name: "Apify", category: "automation", subcategory: "developer", tags: ["Scraping", "Automation"], url: "https://apify.com", desc: "Web scraping & automation platform", pricing: "Freemium", isHot: true },
 
     // AI Agents
     { id: "auto-autogen", name: "AutoGen", category: "automation", subcategory: "agents", tags: ["Agents", "Microsoft"], url: "https://github.com/microsoft/autogen", desc: "Multi-agent framework", pricing: "Free" },
